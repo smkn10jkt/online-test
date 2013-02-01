@@ -50,7 +50,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#/master/school">School</a></li>
-                                     <li><a href="#/master/teacher">Guru</a></li>
+                                     <li><a href="#/master/guru">Guru</a></li>
                                      <li><a href="#/master/kelas">Kelas</a></li>
                                      <li><a href="#/master/jurusan">Jurusan</a></li>
                                      <li><a href="#/master/mapel">Mata Pelajaran</a></li>
