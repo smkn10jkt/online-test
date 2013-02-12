@@ -5,7 +5,7 @@
         
     <!-- Button to trigger modal -->
     <a href="#addSoal" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Soal Baru</a>
-    <a href="#addSoal" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Mata Pelajaran Baru</a>
+    <a href="#addTopik" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Mata Pelajaran Baru</a>
      
     <!-- Modal -->
     <div id="addSoal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -70,12 +70,10 @@
             </div>
             <div class="control-group" ng-class="{error: formEdit.id_topik.$invalid}">
                 <label class="control-label" for="id_topik">Mata Pelajaran : &nbsp;</label>
-                <input type="text" id="id_topik" 
-                       name="id_topik" 
-                       placeholder="Mata Pelajaran" 
-                       ng-model="currentSoal.id_topik"
-                       required>
-                <span ng-show="formEdit.id_topik.$error.required" class="help-inline">Harus Diisi</span>
+                <select ui-select2 ng-model="currentSoal.id_topik.id" data-placeholder="-- Pilih Salah Satu --">
+                    <option></option>
+                    <option ng-repeat="topik in topiks" value="{{topik.id}}">{{topik.nama}}</option>
+              </select>
             </div>
         </div>
         <div class="modal-footer">
@@ -100,7 +98,7 @@
                 <th>Nilai KKM</th>
                 <th>Tingkat Kesulitan</th>
                 <th>Mata Pelajaran</th>
-                <th></th>
+                <th>Perintah</th>
             </tr>
         </thead>
         <tbody>
