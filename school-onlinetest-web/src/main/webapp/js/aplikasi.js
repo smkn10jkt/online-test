@@ -15,6 +15,8 @@ angular.module('belajar', ['ui', 'belajar.controller'])
             .when('/master/soal', {templateUrl: 'pages/master/soal.html'})
             .when('/master/ujian', {templateUrl: 'pages/master/ujian.html'})
             .when('/master/topik', {templateUrl: 'pages/master/topik.html'})
+            .when('/master/pertanyaan', {templateUrl: 'pages/master/pertanyaan.html'})
+            .when('/master/pilihan', {templateUrl: 'pages/master/pilihan.html'})
             .when('/about', {templateUrl: 'pages/about.html', controller: 'AboutController'})
             .otherwise({templateUrl: 'pages/404.html'});
     }])
