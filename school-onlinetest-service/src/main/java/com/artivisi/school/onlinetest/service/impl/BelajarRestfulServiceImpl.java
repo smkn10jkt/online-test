@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
+import com.artivisi.school.onlinetest.dao.LaporanDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
 import com.artivisi.school.onlinetest.dao.RoleDao;
@@ -17,6 +18,7 @@ import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
 import com.artivisi.school.onlinetest.domain.Role;
+import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
 import java.util.ArrayList;
@@ -38,6 +40,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private RoleDao roleDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private LaporanDao laporanDao;
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -273,6 +277,34 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllUsers() {
         return userDao.count();
+    }
+
+    @Override
+    public void save(Ujian u) {
+        laporanDao.save(u);
+    }
+
+    @Override
+    public void delete(Ujian u) {
+        laporanDao.delete(u);
+    }
+
+    @Override
+    public Ujian FindByIdUjian(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return laporanDao.findOne(id);
+    }
+
+    @Override
+    public Page<Ujian> FindByAllUjian(Pageable pageable) {
+        return laporanDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllUjians() {
+        return laporanDao.count();
     }
 
 }

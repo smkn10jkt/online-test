@@ -6,6 +6,7 @@ import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
 import com.artivisi.school.onlinetest.domain.Role;
+import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -53,4 +54,11 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
-}
+    
+//laporan nih
+void save (Ujian u);
+void delete (Ujian u);
+Ujian FindByIdUjian (String id);
+Page<Ujian> FindByAllUjian (Pageable pageable);
+Long countAllUjians();
+        }
