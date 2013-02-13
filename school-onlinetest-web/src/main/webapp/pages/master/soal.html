@@ -7,7 +7,7 @@
     <a href="#addSoal" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Soal Baru</a>
     <a href="#addTopik" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Mata Pelajaran Baru</a>
      
-    <!-- Modal -->
+    <!-- Modal Add SOAL-->
     <div id="addSoal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
@@ -82,6 +82,49 @@
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
     </div>
+    
+    <!-- Modal Add MATPEL-->
+    <div id="addTopik" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3 id="myModalLabel">Tambah Data Topik</h3>
+        </div>
+        <div class="modal-body">
+            <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
+                <label class="control-label" for="id">ID : &nbsp;</label>
+                <input type="text" id="id" 
+                       name="id" 
+                       placeholder="ID Topik" 
+                       ng-model="currentTopik.id"
+                       required>
+               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
+            </div>
+            <div class="control-group" ng-class="{error: formEdit.kode.$invalid}">
+                <label class="control-label" for="kode">Kode Mata Pelajaran : &nbsp;</label>
+                <input type="text" id="kode" 
+                       name="kode" 
+                       placeholder="Kode Mata Pelajaran" 
+                       ng-model="currentTopik.kode"
+                       required>
+                <span ng-show="formEdit.kode.$error.required" class="help-inline">Harus Diisi</span>
+            </div>
+            <div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
+                <label class="control-label" for="nama">Nama Mata Pelajaran : &nbsp;</label>
+                <input type="text" id="nama" 
+                       name="nama" 
+                       placeholder="Nama Mata Pelajaran" 
+                       ng-model="currentTopik.nama"
+                       required>
+                <span ng-show="formEdit.nama.$error.required" class="help-inline">Harus Diisi</span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
+            <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </div>
+    
     </form>  
    </div> 
 </div>
