@@ -1,6 +1,6 @@
 <div class="row-fluid">
    <div class="span12 well-large">
-       <center><h1>Master Peserta</h1></center>
+    <h1>Master Peserta</h1>
     <form class="form-horizontal" name="formEdit">
         <!-- Button to trigger modal -->
     <a href="#addPeserta" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-plus-sign"></i>Tambah Peserta Baru</a>
