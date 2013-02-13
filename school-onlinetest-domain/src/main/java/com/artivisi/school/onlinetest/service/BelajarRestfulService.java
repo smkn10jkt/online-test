@@ -5,6 +5,7 @@ import java.util.List;
 import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
+import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.domain.Role;
 import com.artivisi.school.onlinetest.domain.User;
 import java.util.List;
@@ -53,4 +54,11 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
+    
+    // peserta
+    void save(Peserta peserta);
+    void delete(Peserta peserta);
+    Peserta findPesertaById(String id);
+    Page<Peserta> findAllPesertas(Pageable pageable);
+    Long countAllPesertas();
 }
