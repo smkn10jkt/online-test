@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
-import com.artivisi.school.onlinetest.dao.LaporanDao;
+import com.artivisi.school.onlinetest.dao.UjianDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
 import com.artivisi.school.onlinetest.dao.RoleDao;
@@ -41,7 +41,7 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private LaporanDao laporanDao;
+    private UjianDao ujianDao;
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -281,12 +281,12 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Ujian u) {
-        laporanDao.save(u);
+        ujianDao.save(u);
     }
 
     @Override
     public void delete(Ujian u) {
-        laporanDao.delete(u);
+        ujianDao.delete(u);
     }
 
     @Override
@@ -294,17 +294,17 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         if(!StringUtils.hasText(id)){
             return null;
         }
-        return laporanDao.findOne(id);
+        return ujianDao.findOne(id);
     }
 
     @Override
     public Page<Ujian> FindByAllUjian(Pageable pageable) {
-        return laporanDao.findAll(pageable);
+        return ujianDao.findAll(pageable);
     }
 
     @Override
     public Long countAllUjians() {
-        return laporanDao.count();
+        return ujianDao.count();
     }
 
 }

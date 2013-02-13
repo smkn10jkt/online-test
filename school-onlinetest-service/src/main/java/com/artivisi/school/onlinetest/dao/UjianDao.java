@@ -12,6 +12,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  *
  * @author LILY
  */
-public interface LaporanDao extends PagingAndSortingRepository<Ujian, String> {
+public interface UjianDao extends PagingAndSortingRepository<Ujian, String> {
     
 }

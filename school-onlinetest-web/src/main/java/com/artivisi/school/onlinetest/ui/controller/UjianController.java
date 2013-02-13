@@ -29,7 +29,7 @@ import org.springframework.web.util.UriTemplate;
  * @author LILY
  */
 @Controller
-public class LaporanController {
+public class UjianController {
      @Autowired
     private BelajarRestfulService belajarRestfulService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
