@@ -64,14 +64,13 @@ void delete (Ujian u);
 Ujian FindByIdUjian (String id);
 Page<Ujian> FindByAllUjian (Pageable pageable);
 Long countAllUjians();
-        }
+        
     // peserta
     void save(Peserta peserta);
     void delete(Peserta peserta);
     Peserta findPesertaById(String id);
     Page<Peserta> findAllPesertas(Pageable pageable);
     Long countAllPesertas();
-}
     
     // soal
     void save(Soal soal);
