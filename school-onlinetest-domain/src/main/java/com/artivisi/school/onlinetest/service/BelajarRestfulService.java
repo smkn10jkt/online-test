@@ -8,7 +8,11 @@ import com.artivisi.school.onlinetest.domain.Permission;
 import com.artivisi.school.onlinetest.domain.Pertanyaan;
 import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.domain.Role;
+<<<<<<< HEAD
+import com.artivisi.school.onlinetest.domain.Ujian;
+=======
 import com.artivisi.school.onlinetest.domain.Soal;
+>>>>>>> 44a9471e3af4afa19114120d9d07fbf980b1ad6f
 import com.artivisi.school.onlinetest.domain.User;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -57,12 +61,25 @@ public interface BelajarRestfulService extends MonitoredService {
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
     
+<<<<<<< HEAD
+//laporan nih
+void save (Ujian u);
+void delete (Ujian u);
+Ujian FindByIdUjian (String id);
+Page<Ujian> FindByAllUjian (Pageable pageable);
+Long countAllUjians();
+        }
+=======
     // peserta
     void save(Peserta peserta);
     void delete(Peserta peserta);
     Peserta findPesertaById(String id);
     Page<Peserta> findAllPesertas(Pageable pageable);
     Long countAllPesertas();
+<<<<<<< HEAD
+}
+>>>>>>> 864275097d2da38b5e5a7b0775faa96529cb1f66
+=======
     
     // soal
     void save(Soal soal);
@@ -78,3 +95,4 @@ public interface BelajarRestfulService extends MonitoredService {
     Page<Soal> findAllPertanyaans(Pageable pageable);
     Long countAllPertanyaans();
 }
+>>>>>>> 44a9471e3af4afa19114120d9d07fbf980b1ad6f
