@@ -3,10 +3,10 @@
     <h1>Master Ujian</h1>
     <form class="form-horizontal" name="formEdit">
          <!-- Button to trigger modal -->
-    <a href="#addPeserta" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i>Tambah Data</a>
+    <a href="#addUjian" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-plus-sign"></i>Tambah Data</a>
 
     <!-- Modal -->
-    <div id="addPeserta" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="addUjian" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
         <h3 id="myModalLabel">Tambah Data</h3>
@@ -21,7 +21,7 @@
         </div>
         <div class="control-group" ng-class="{error: formEdit.isi.$invalid}">
             <label class="control-label" for="isi"> Pertanyaan : &nbsp;</label>
-            <input type="textarea" kode="isi" 
+            <input type="text" kode="isi" 
                    name="isi" 
                    placeholder="Isi Pertanyaan" 
                    ng-model="currentUjiann.isi"
