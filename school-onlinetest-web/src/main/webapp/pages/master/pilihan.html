@@ -1,48 +1,57 @@
 <div class="row-fluid">
    <div class="span10 well-large">
-       <center><h1>Master Topik</h1></center>
+       <center><h1>Master Pilihan</h1></center>
     <form class="form-horizontal" name="formEdit">
         
     <!-- Button to trigger modal -->
-    <a href="#addTopik" role="button" class="btn btn-large btn-primary" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Topik Baru</a>
+    <a href="#addTopik" role="button" class="btn btn-large btn-primary" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Pilihan Baru</a>
      
     <!-- Modal -->
     <div id="addTopik" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-            <h3 id="myModalLabel">Tambah Topik</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <h3 id="myModalLabel">Tambah Data Pilihan</h3>
         </div>
         <div class="modal-body">
             <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
                 <label class="control-label" for="id">ID : &nbsp;</label>
                 <input type="text" id="id" 
                        name="id" 
-                       placeholder="ID Topik" 
-                       ng-model="currentTopik.id"
+                       placeholder="ID Pilihan" 
+                       ng-model="currentPilihan.id"
                        required>
                <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
             </div>
+            <div class="control-group" ng-class="{error: formEdit.isi.$invalid}">
+                <label class="control-label" for="isi">Isi : &nbsp;</label>
+                <input type="text" id="isi" 
+                       name="isi" 
+                       placeholder="Isi Pilihan" 
+                       ng-model="currentPilihan.isi"
+                       required>
+                <span ng-show="formEdit.isi.$error.required" class="help-inline">Harus Diisi</span>
+            </div>
             <div class="control-group" ng-class="{error: formEdit.kode.$invalid}">
-                <label class="control-label" for="kode">Kode : &nbsp;</label>
+                <label class="control-label" for="kode">Kode Pilihan : &nbsp;</label>
                 <input type="text" id="kode" 
                        name="kode" 
-                       placeholder="Kode" 
-                       ng-model="currentTopik.kode"
+                       placeholder="Kode Pilihan" 
+                       ng-model="currentPilihan.kode"
                        required>
                 <span ng-show="formEdit.kode.$error.required" class="help-inline">Harus Diisi</span>
             </div>
-            <div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
-                <label class="control-label" for="nama">Nama : &nbsp;</label>
-                <input type="text" id="nama" 
-                       name="nama" 
-                       placeholder="Nama" 
-                       ng-model="currentTopik.nama"
+            <div class="control-group" ng-class="{error: formEdit.urutan.$invalid}">
+                <label class="control-label" for="urutan">Urutan : &nbsp;</label>
+                <input type="text" id="urutan" 
+                       name="urutan" 
+                       placeholder="Urutan Pilihan" 
+                       ng-model="currentPilihan.urutan"
                        required>
-                <span ng-show="formEdit.nama.$error.required" class="help-inline">Harus Diisi</span>
+                <span ng-show="formEdit.urutan.$error.required" class="help-inline">Harus Diisi</span>
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Save</button>
+            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
             <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
@@ -61,7 +70,7 @@
                 <th>Nama</th>
             </tr>
         </thead>
-        <tbody
+        <tbody>
             <tr ng-repeat="x in soals">
                 <td>{{x.id}}</td>
                 <td>{{x.kode}}</td>
