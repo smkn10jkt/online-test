@@ -87,6 +87,130 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        
+        <createTable tableName="t_pertanyaan">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="bobot" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+            <column name="isi" type="longtext">
+                <constraints nullable="false" />
+            </column>
+            <column name="jawaban" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_peserta">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="kode" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nama" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_pertanyaan">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="bobot" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+            <column name="isi" type="longtext">
+                <constraints nullable="false" />
+            </column>
+            <column name="jawaban" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_pilihan">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="isi" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="kode" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="urutan" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_soal">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="jumlah_pertanyaan" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+            <column name="kode" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nama" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nilai_lulus_minimum" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+            <column name="tingkat_kesulitan" type="int(11)">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_topik" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_topik">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="kode" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nama" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
+        <createTable tableName="t_ujian">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="isi" type="longtext">
+                <constraints nullable="false" />
+            </column>
+            <column name="waktu_mulai" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="waktu_selesai" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_pertanyaan" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_pilihan" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_ujian" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_peserta" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -149,6 +273,67 @@
             referencedTableName="c_security_role"
             referencedColumnNames="id"
         />
+        
+        
+        <addUniqueConstraint
+            constraintName="unique_peserta_email"
+            columnNames="email"
+            tableName="t_peserta"
+        />
+        <addUniqueConstraint
+            constraintName="unique_peserta_kode"
+            columnNames="kode"
+            tableName="t_peserta"
+        />
+        
+        <addUniqueConstraint
+            constraintName="unique_soal_kode"
+            columnNames="kode"
+            tableName="t_soal"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_soal_role"
+            baseColumnNames="id_topik"
+            baseTableName="t_soal"
+            referencedTableName="t_topik"
+            referencedColumnNames="id"
+        />
+        
+        <addUniqueConstraint
+            constraintName="unique_topik_kode"
+            columnNames="kode"
+            tableName="t_topik"
+        />
+        
+        <addForeignKeyConstraint
+            constraintName="fk_ujian_pertanyaan"
+            baseColumnNames="id_pertanyaan"
+            baseTableName="t_ujian"
+            referencedTableName="t_pertanyaan"
+            referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_ujian_pilihan"
+            baseColumnNames="id_pilihan"
+            baseTableName="t_ujian"
+            referencedTableName="t_pilihan"
+            referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_ujian_ujian"
+            baseColumnNames="id_ujian"
+            baseTableName="t_ujian"
+            referencedTableName="t_ujian"
+            referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_ujian_peserta"
+            baseColumnNames="id_peserta"
+            baseTableName="t_ujian"
+            referencedTableName="t_peserta"
+            referencedColumnNames="id"
+        />
+        
     </changeSet>
     <changeSet id="3" author="endy">
         <loadData tableName="c_security_menu" file="com/artivisi/school/onlinetest/db/data/menu.csv">
@@ -185,6 +370,48 @@
             <column header="password" type="STRING"/>
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
+        </loadData>
+        <loadData tableName="t_pertanyaan" file="com/artivisi/school/onlinetest/db/data/t_pertanyaan.csv">
+            <column header="id" type="STRING"/>
+            <column header="bobot" type="NUMERIC"/>
+            <column header="isi" type="STRING"/>
+            <column header="jawaban" type="STRING"/>
+        </loadData>
+        <loadData tableName="t_peserta" file="com/artivisi/school/onlinetest/db/data/t_peserta.csv">
+            <column header="id" type="STRING"/>
+            <column header="email" type="STRING"/>
+            <column header="kode" type="STRING"/>
+            <column header="nama" type="STRING"/>
+        </loadData>
+        <loadData tableName="t_pilihan" file="com/artivisi/school/onlinetest/db/data/t_pilihan.csv">
+            <column header="id" type="STRING"/>
+            <column header="isi" type="STRING"/>
+            <column header="kode" type="STRING"/>
+            <column header="urutan" type="NUMERIC"/>
+        </loadData>
+        <loadData tableName="t_soal" file="com/artivisi/school/onlinetest/db/data/t_soal.csv">
+            <column header="id" type="STRING"/>
+            <column header="jumlah_pertanyaan" type="NUMERIC"/>
+            <column header="kode" type="STRING"/>
+            <column header="nama" type="STRING"/>
+            <column header="nilai_lulus_minimum" type="NUMERIC"/>
+            <column header="tingkat_kesulitan" type="NUMERIC"/>
+            <column header="id_topik" type="STRING"/>
+        </loadData>
+        <loadData tableName="t_topik" file="com/artivisi/school/onlinetest/db/data/t_topik.csv">
+            <column header="id" type="STRING"/>
+            <column header="kode" type="STRING"/>
+            <column header="nama" type="STRING"/>
+        </loadData>
+        <loadData tableName="t_ujian" file="com/artivisi/school/onlinetest/db/data/t_ujian.csv">
+            <column header="id" type="STRING"/>
+            <column header="isi" type="STRING"/>
+            <column header="waktu_mulai" type="STRING"/>
+            <column header="waktu_selesai" type="NUMERIC"/>
+            <column header="id_pertanyaan" type="STRING"/>
+            <column header="id_pilihan" type="STRING"/>
+            <column header="id_ujian" type="STRING"/>
+            <column header="id_peserta" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>
