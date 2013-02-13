@@ -52,5 +52,5 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserById(String id);
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
-    Long countAllUsers();
+    Long countAllUsers();   
 }
