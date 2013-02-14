@@ -19,6 +19,7 @@ import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
 import com.artivisi.school.onlinetest.domain.Pertanyaan;
 import com.artivisi.school.onlinetest.domain.Peserta;
+import com.artivisi.school.onlinetest.domain.Pilihan;
 import com.artivisi.school.onlinetest.domain.Role;
 import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Topik;
@@ -344,7 +345,7 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
-    public User findSoalById(String id) {
+    public Soal findSoalById(String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -369,12 +370,12 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
-    public User findPertanyaanById(String id) {
+    public Pertanyaan findPertanyaanById(String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Page<Soal> findAllPertanyaans(Pageable pageable) {
+    public Page<Pertanyaan> findAllPertanyaans(Pageable pageable) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -407,4 +408,30 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllTopiks() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public void save(Pilihan pilihan) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Pilihan pilihan) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Pilihan findPilihanById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Pilihan> findAllPilihans(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllPilihans() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
