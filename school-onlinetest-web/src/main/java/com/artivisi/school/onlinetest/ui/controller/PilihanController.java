@@ -87,7 +87,7 @@ public class PilihanController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({IllegalStateException.class})
     public void handle(){
-        logger.debug("Resource dengan URl tersebut tidak ditemukan !"); 
+        logger.debug("Resource dengan URI tersebut tidak ditemukan !"); 
     }
     
     
