@@ -12,7 +12,12 @@ import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
 import com.artivisi.school.onlinetest.dao.UjianDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
+import com.artivisi.school.onlinetest.dao.PertanyaanDao;
+import com.artivisi.school.onlinetest.dao.PesertaDao;
+import com.artivisi.school.onlinetest.dao.PilihanDao;
 import com.artivisi.school.onlinetest.dao.RoleDao;
+import com.artivisi.school.onlinetest.dao.SoalDao;
+import com.artivisi.school.onlinetest.dao.TopikDao;
 import com.artivisi.school.onlinetest.dao.UserDao;
 import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
@@ -47,6 +52,16 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private UserDao userDao;
     @Autowired
     private UjianDao ujianDao;
+    @Autowired
+    private SoalDao soalDao;
+    @Autowired
+    private TopikDao topikDao;
+    @Autowired
+    private PesertaDao pesertaDao;
+    @Autowired
+    private PilihanDao pilihanDao;
+    @Autowired
+    private PertanyaanDao pertanyaanDao;
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -336,27 +351,30 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Soal soal) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        soalDao.save(soal);
     }
 
     @Override
     public void delete(Soal soal) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        soalDao.delete(soal);
     }
 
     @Override
     public Soal findSoalById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return soalDao.findOne(id);
     }
 
     @Override
     public Page<Soal> findAllSoals(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return soalDao.findAll(pageable);
     }
 
     @Override
     public Long countAllSoals() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return soalDao.count();
     }
 
     @Override
