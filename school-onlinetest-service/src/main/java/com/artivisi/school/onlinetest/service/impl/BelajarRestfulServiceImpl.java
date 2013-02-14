@@ -404,52 +404,58 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Topik topik) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        topikDao.save(topik);
     }
 
     @Override
-    public void delete(Topik topik) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(Topik topik) {   
+        topikDao.delete(topik);
     }
 
     @Override
     public Topik findTopikById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return topikDao.findOne(id);
     }
 
     @Override
-    public Page<Topik> findAllTopiks(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Page<Topik> findAllTopiks(Pageable pageable) {   
+            return topikDao.findAll(pageable);
     }
 
     @Override
     public Long countAllTopiks() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return topikDao.count();
     }
 
     @Override
     public void save(Pilihan pilihan) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pilihanDao.save(pilihan);
     }
 
     @Override
     public void delete(Pilihan pilihan) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pilihanDao.delete(pilihan);
     }
 
     @Override
     public Pilihan findPilihanById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return pilihanDao.findOne(id);
     }
 
     @Override
     public Page<Pilihan> findAllPilihans(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return pilihanDao.findAll(pageable);
     }
 
     @Override
     public Long countAllPilihans() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return pilihanDao.count();
     }
 
 }
