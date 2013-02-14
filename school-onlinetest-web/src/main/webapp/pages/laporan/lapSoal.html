@@ -2,7 +2,14 @@
    <div class="span10 well-large">
        <center><h1>Laporan Soal</h1></center>
     <form class="form-horizontal" name="formEdit">
-    
+       <label class="control-label" for="cari">Cari : &nbsp;</label>
+       <select>
+                <option>ID</option>
+                <option>Kode Soal</option>
+                <option>Judul Soal</option>
+                <option>Mata Pelajaran</option>
+        </select>
+       <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
     </form>  
    </div> 
 </div>
