@@ -10,8 +10,10 @@ import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.domain.Role;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.Soal;
+import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.User;
 import java.util.List;
+import org.hibernate.type.descriptor.java.UUIDTypeDescriptor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -85,4 +87,11 @@ public interface BelajarRestfulService extends MonitoredService {
     User findPertanyaanById(String id);
     Page<Soal> findAllPertanyaans(Pageable pageable);
     Long countAllPertanyaans();
+    
+    //topik
+    void save (Topik topik);
+    void delete(Topik topik);
+    Topik findTopikById(String id);
+    Page<Topik> findAllTopiks(Pageable pageable);
+    Long countAllTopiks();
 }

@@ -21,6 +21,7 @@ import com.artivisi.school.onlinetest.domain.Pertanyaan;
 import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.domain.Role;
 import com.artivisi.school.onlinetest.domain.Soal;
+import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
@@ -379,6 +380,31 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public Long countAllPertanyaans() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Topik topik) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Topik topik) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Topik findTopikById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Topik> findAllTopiks(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllTopiks() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
