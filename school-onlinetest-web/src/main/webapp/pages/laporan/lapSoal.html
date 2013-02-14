@@ -1,7 +1,7 @@
 <div class="row-fluid">
    <div class="span10 well-large">
        <center><h1>Laporan Soal</h1></center>
-    <form class="form-horizontal" name="formEdit">
+    <form class="form-horizontal" name="formSearch">
        <label class="control-label" for="cari">Cari : &nbsp;</label>
        <select>
                 <option>ID</option>
@@ -10,6 +10,7 @@
                 <option>Mata Pelajaran</option>
         </select>
        <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
+       <buttonclass class="btn btn-warning" data-toggle="modal"><i class="icon-search"></i>&nbsp; Data Soal Baru</button>
     </form>  
    </div> 
 </div>
