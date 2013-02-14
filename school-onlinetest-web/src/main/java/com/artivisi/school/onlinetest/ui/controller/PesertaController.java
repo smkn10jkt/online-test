@@ -1,21 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.artivisi.school.onlinetest.ui.controller;
 
 import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
-import java.awt.print.Pageable;
 import java.net.URI;
-import.java.until.List;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,14 +26,15 @@ import org.springframework.web.util.UriTemplate;
  *
  * @author USER
  */
+@Controller
 public class PesertaController {
     @Autowired
     private BelajarRestfulService belajarRestfulService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     
-    @RequestMapping("/user/{id}")
+    @RequestMapping("/peserta/{id}")
     @ResponseBody
-    public Peserta findById(@PathVariable String id) {
+    public Peserta findByIdPeserta(@PathVariable String id) {
         Peserta x = belajarRestfulService.findPesertaById(id);
         if (x == null) {
             throw new IllegalStateException();
@@ -74,22 +72,23 @@ public class PesertaController {
         }
         belajarRestfulService.delete(p);
     }
-       @RequestMapping(value = "/soal", method = RequestMethod.GET)
+       
+    @RequestMapping(value = "/peserta", method = RequestMethod.GET)
     @ResponseBody
-    public List<Peserta> findAllPesertas(
+    public List<Peserta> findAllSoals(
             Pageable pageable,
             HttpServletResponse response) {
         List<Peserta> hasil = belajarRestfulService.findAllPesertas(pageable).getContent();
 
         return hasil;
-    }    
-        
+    }
+       
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({IllegalStateException.class})
     public void handle() {
         logger.debug("Resource dengan URI tersebut tidak ditemukan");
     }
-    }
+}
         
             
 
