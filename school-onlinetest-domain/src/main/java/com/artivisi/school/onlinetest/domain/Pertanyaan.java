@@ -33,4 +33,37 @@ public class Pertanyaan {
     @Min(1)
     private Integer bobot;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIsi() {
+        return isi;
+    }
+
+    public void setIsi(String isi) {
+        this.isi = isi;
+    }
+
+    public String getJawaban() {
+        return jawaban;
+    }
+
+    public void setJawaban(String jawaban) {
+        this.jawaban = jawaban;
+    }
+
+    public Integer getBobot() {
+        return bobot;
+    }
+
+    public void setBobot(Integer bobot) {
+        this.bobot = bobot;
+    }
+
+    
 }

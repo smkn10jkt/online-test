@@ -1,6 +1,6 @@
 package com.artivisi.school.onlinetest.ui.controller;
 
-import com.artivisi.school.onlinetest.domain.Soal;
+import com.artivisi.school.onlinetest.domain.Pertanyaan;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
 import java.net.URI;
 import java.util.List;
@@ -27,60 +27,60 @@ import org.springframework.web.util.UriTemplate;
  * @author nikko
  */
 @Controller
-public class SoalController {
+public class PertanyaanController {
     
     @Autowired
     private BelajarRestfulService belajarRestfulService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-    
-    @RequestMapping("/soal/{id}")
+
+    @RequestMapping("/pertanyaan/{id}")
     @ResponseBody
-    public Soal findById(@PathVariable String id){
-        Soal x = belajarRestfulService.findSoalById(id);
-        if(x == null){
+    public Pertanyaan findById(@PathVariable String id) {
+        Pertanyaan x = belajarRestfulService.findPertanyaanById(id);
+        if (x == null) {
             throw new IllegalStateException();
         }
         return x;
     }
     
-    @RequestMapping(value = "/soal", method = RequestMethod.POST)
+    @RequestMapping(value = "/pertanyaan", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody @Valid Soal x, HttpServletRequest request, HttpServletResponse response){
+    public void create(@RequestBody @Valid Pertanyaan x, HttpServletRequest request, HttpServletResponse response) {
         belajarRestfulService.save(x);
-        String requestUrl = request.getRequestURI().toString();
+        String requestUrl = request.getRequestURL().toString();
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, x.getId());
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(method = RequestMethod.PUT, value = "/soal/{id}")
+    @RequestMapping(method = RequestMethod.PUT, value = "/pertanyaan/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable String id, @RequestBody @Valid Soal x){
-        Soal a = belajarRestfulService.findSoalById(id);
-        if(a == null){
-            logger.warn("Soal dengan id [{}] tidak ditemukan", id);
-            throw  new IllegalStateException();
+    public void update(@PathVariable String id, @RequestBody @Valid Pertanyaan x) {
+        Pertanyaan a = belajarRestfulService.findPertanyaanById(id);
+        if (a == null) {
+            logger.warn("Pertanyaan dengan id [{}] tidak ditemukan", id);
+            throw new IllegalStateException();
         }
         x.setId(a.getId());
         belajarRestfulService.save(x);
     }
     
-    @RequestMapping(method = RequestMethod.DELETE, value = "/soal/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/pertanyaan/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id) {
-        Soal a = belajarRestfulService.findSoalById(id);
+        Pertanyaan a = belajarRestfulService.findPertanyaanById(id);
         if (a == null) {
-            logger.warn("Soal dengan id [{}] tidak ditemukan", id);
+            logger.warn("Pertanyaan dengan id [{}] tidak ditemukan", id);
             throw new IllegalStateException();
         }
         belajarRestfulService.delete(a);
     }
     
-    @RequestMapping(value = "/soal", method = RequestMethod.GET)
+    @RequestMapping(value = "/pertanyaan", method = RequestMethod.GET)
     @ResponseBody
-    public List<Soal> findAllSoals(
+    public List<Pertanyaan> findAllPertanyaans(
             Pageable pageable,
             HttpServletResponse response) {
-        List<Soal> hasil = belajarRestfulService.findAllSoals(pageable).getContent();
+        List<Pertanyaan> hasil = belajarRestfulService.findAllPertanyaans(pageable).getContent();
 
         return hasil;
     }
@@ -90,4 +90,5 @@ public class SoalController {
     public void handle() {
         logger.debug("Resource dengan URI tersebut tidak ditemukan");
     }
+
 }
