@@ -17,7 +17,10 @@ import com.artivisi.school.onlinetest.dao.UserDao;
 import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
+import com.artivisi.school.onlinetest.domain.Pertanyaan;
+import com.artivisi.school.onlinetest.domain.Peserta;
 import com.artivisi.school.onlinetest.domain.Role;
+import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
@@ -280,31 +283,102 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
-    public void save(Ujian u) {
-        ujianDao.save(u);
+    public void save(Ujian ujian) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void delete(Ujian u) {
-        ujianDao.delete(u);
+    public void delete(Ujian ujian) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Ujian FindByIdUjian(String id) {
-        if(!StringUtils.hasText(id)){
-            return null;
-        }
-        return ujianDao.findOne(id);
+    public Ujian findByIdUjian(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Page<Ujian> FindByAllUjian(Pageable pageable) {
-        return ujianDao.findAll(pageable);
+    public Page<Ujian> findAllUjian(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public Long countAllUjians() {
-        return ujianDao.count();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public void save(Peserta peserta) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Peserta peserta) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Peserta findPesertaById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Peserta> findAllPesertas(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllPesertas() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Soal soal) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Soal soal) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public User findSoalById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Soal> findAllSoals(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllSoals() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Pertanyaan pertanyaan) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Pertanyaan pertanyaan) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public User findPertanyaanById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Soal> findAllPertanyaans(Pageable pageable) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllPertanyaans() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
