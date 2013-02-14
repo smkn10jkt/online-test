@@ -326,27 +326,30 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Peserta peserta) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pesertaDao.save(peserta); 
     }
 
     @Override
     public void delete(Peserta peserta) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pesertaDao.delete(peserta);
     }
 
     @Override
     public Peserta findPesertaById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return pesertaDao.findOne(id);
     }
 
     @Override
     public Page<Peserta> findAllPesertas(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return pesertaDao.findAll(pageable);
     }
 
     @Override
     public Long countAllPesertas() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return pesertaDao.count();
     }
 
     @Override
