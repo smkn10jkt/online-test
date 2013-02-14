@@ -118,21 +118,6 @@
             </column>
         </createTable>
         
-        <createTable tableName="t_pertanyaan">
-            <column name="id" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="bobot" type="int(11)">
-                <constraints nullable="false" />
-            </column>
-            <column name="isi" type="longtext">
-                <constraints nullable="false" />
-            </column>
-            <column name="jawaban" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-        
         <createTable tableName="t_pilihan">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
