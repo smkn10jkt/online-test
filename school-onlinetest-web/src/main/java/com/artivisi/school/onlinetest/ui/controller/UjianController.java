@@ -30,6 +30,7 @@ import org.springframework.web.util.UriTemplate;
  */
 @Controller
 public class UjianController {
+    
      @Autowired
     private BelajarRestfulService belajarRestfulService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -37,7 +38,7 @@ public class UjianController {
     @RequestMapping("/Ujian/{id}")
     @ResponseBody
     public Ujian findByIdUjian(@PathVariable String id) {
-        Ujian u = belajarRestfulService.FindByIdUjian(id);
+        Ujian u = belajarRestfulService.findByIdUjian(id);
         if (u == null) {
             throw new IllegalStateException();
         }
