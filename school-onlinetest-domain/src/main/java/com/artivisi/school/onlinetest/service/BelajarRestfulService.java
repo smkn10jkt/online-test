@@ -7,6 +7,7 @@ import com.artivisi.school.onlinetest.domain.Menu;
 import com.artivisi.school.onlinetest.domain.Permission;
 import com.artivisi.school.onlinetest.domain.Pertanyaan;
 import com.artivisi.school.onlinetest.domain.Peserta;
+import com.artivisi.school.onlinetest.domain.Pilihan;
 import com.artivisi.school.onlinetest.domain.Role;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.Soal;
@@ -77,15 +78,15 @@ public interface BelajarRestfulService extends MonitoredService {
     // soal
     void save(Soal soal);
     void delete(Soal soal);
-    User findSoalById(String id);
+    Soal findSoalById(String id);
     Page<Soal> findAllSoals(Pageable pageable);
     Long countAllSoals();
     
     // pertanyaan
     void save(Pertanyaan pertanyaan);
     void delete(Pertanyaan pertanyaan);
-    User findPertanyaanById(String id);
-    Page<Soal> findAllPertanyaans(Pageable pageable);
+    Pertanyaan findPertanyaanById(String id);
+    Page<Pertanyaan> findAllPertanyaans(Pageable pageable);
     Long countAllPertanyaans();
     
     //topik
@@ -94,4 +95,11 @@ public interface BelajarRestfulService extends MonitoredService {
     Topik findTopikById(String id);
     Page<Topik> findAllTopiks(Pageable pageable);
     Long countAllTopiks();
+    
+    //pilihan
+    void save (Pilihan pilihan);
+    void delete(Pilihan pilihan);
+    Pilihan findPilihanById(String id);
+    Page<Pilihan> findAllPilihans(Pageable pageable);
+    Long countAllPilihans();
 }
