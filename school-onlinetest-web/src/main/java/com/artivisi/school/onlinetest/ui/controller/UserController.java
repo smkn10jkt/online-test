@@ -35,7 +35,7 @@ public class UserController {
         User x = belajarRestfulService.findUserById(id);
         if (x == null) {
             throw new IllegalStateException();
-        }
+            }
         fixLie(x);
         return x;
     }

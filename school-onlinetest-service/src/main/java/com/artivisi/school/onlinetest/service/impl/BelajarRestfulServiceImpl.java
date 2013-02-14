@@ -301,27 +301,30 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Ujian ujian) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ujianDao.save(ujian);
     }
 
     @Override
     public void delete(Ujian ujian) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       ujianDao.delete(ujian);
     }
 
     @Override
     public Ujian findByIdUjian(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return ujianDao.findOne(id);
     }
 
     @Override
     public Page<Ujian> findAllUjian(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return ujianDao.findAll(pageable);
     }
 
     @Override
     public Long countAllUjians() {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return ujianDao.count();
     }
 
     @Override
@@ -382,27 +385,30 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public void save(Pertanyaan pertanyaan) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pertanyaanDao.save(pertanyaan);
     }
 
     @Override
     public void delete(Pertanyaan pertanyaan) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       pertanyaanDao.delete(pertanyaan);
     }
 
     @Override
     public Pertanyaan findPertanyaanById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return pertanyaanDao.findOne(id);
     }
 
     @Override
     public Page<Pertanyaan> findAllPertanyaans(Pageable pageable) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return pertanyaanDao.findAll(pageable);
     }
 
     @Override
     public Long countAllPertanyaans() {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return pertanyaanDao.count();
     }
 
     @Override
