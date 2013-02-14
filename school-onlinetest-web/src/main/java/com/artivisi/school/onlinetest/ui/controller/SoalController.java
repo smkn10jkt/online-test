@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -28,66 +29,44 @@ import org.springframework.web.util.UriTemplate;
  */
 @Controller
 public class SoalController {
+    @Autowired private BelajarRestfulService belajarRestfulService;
     
-    @Autowired
-    private BelajarRestfulService belajarRestfulService;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-    
-    @RequestMapping("/soal/{id}")
-    @ResponseBody
-    public Soal findById(@PathVariable String id){
-        Soal x = belajarRestfulService.findSoalById(id);
-        if(x == null){
-            throw new IllegalStateException();
-        }
-        return x;
-    }
-    
-    @RequestMapping(value = "/soal", method = RequestMethod.POST)
+    @RequestMapping(value="/master/soal", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody @Valid Soal x, HttpServletRequest request, HttpServletResponse response){
-        belajarRestfulService.save(x);
-        String requestUrl = request.getRequestURI().toString();
-        URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, x.getId());
+    public void save(@RequestBody @Valid Soal soal, HttpServletRequest request, HttpServletResponse response){
+      belajarRestfulService.save(soal);
+       String requestUrl = request.getRequestURL().toString();
+        URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, soal.getId());
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(method = RequestMethod.PUT, value = "/soal/{id}")
+    @RequestMapping(value="/master/soal{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable String id, @RequestBody @Valid Soal x){
-        Soal a = belajarRestfulService.findSoalById(id);
-        if(a == null){
-            logger.warn("Soal dengan id [{}] tidak ditemukan", id);
-            throw  new IllegalStateException();
+    public void update(@PathVariable String id, @RequestBody @Valid Soal soal){
+        belajarRestfulService.save(soal);
+        Soal soalDb = belajarRestfulService.findSoalById(id);
+        if(soalDb !=null){
+            belajarRestfulService.save(soal);
         }
-        x.setId(a.getId());
-        belajarRestfulService.save(x);
     }
     
-    @RequestMapping(method = RequestMethod.DELETE, value = "/soal/{id}")
+    @RequestMapping(value="/master/soal{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable String id) {
-        Soal a = belajarRestfulService.findSoalById(id);
-        if (a == null) {
-            logger.warn("Soal dengan id [{}] tidak ditemukan", id);
-            throw new IllegalStateException();
+    public void delete(@PathVariable String id){
+        Soal soalDb = belajarRestfulService.findSoalById(id);
+        if(soalDb !=null){
+            belajarRestfulService.delete(soalDb);
         }
-        belajarRestfulService.delete(a);
     }
-    
-    @RequestMapping(value = "/soal", method = RequestMethod.GET)
+    @RequestMapping(value="/master/soal{id}", method= RequestMethod.GET)
     @ResponseBody
-    public List<Soal> findAllSoals(
-            Pageable pageable,
-            HttpServletResponse response) {
-        List<Soal> hasil = belajarRestfulService.findAllSoals(pageable).getContent();
-
-        return hasil;
+    public Soal findSoalById(@PathVariable String id){
+        return belajarRestfulService.findSoalById(id);
+        
     }
     
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler({IllegalStateException.class})
-    public void handle() {
-        logger.debug("Resource dengan URI tersebut tidak ditemukan");
+    @RequestMapping(value="/master/soal", method= RequestMethod.GET)
+    public Page<Soal> findSoal(Pageable pagination){
+        return null;
     }
 }
