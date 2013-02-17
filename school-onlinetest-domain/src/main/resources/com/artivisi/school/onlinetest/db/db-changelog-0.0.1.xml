@@ -374,6 +374,11 @@
             <column header="kode" type="STRING"/>
             <column header="urutan" type="NUMERIC"/>
         </loadData>
+        <loadData tableName="t_topik" file="com/artivisi/school/onlinetest/db/data/t_topik.csv">
+            <column header="id" type="STRING"/>
+            <column header="kode" type="STRING"/>
+            <column header="nama" type="STRING"/>
+        </loadData>
         <loadData tableName="t_soal" file="com/artivisi/school/onlinetest/db/data/t_soal.csv">
             <column header="id" type="STRING"/>
             <column header="jumlah_pertanyaan" type="NUMERIC"/>
@@ -383,16 +388,11 @@
             <column header="tingkat_kesulitan" type="NUMERIC"/>
             <column header="id_topik" type="STRING"/>
         </loadData>
-        <loadData tableName="t_topik" file="com/artivisi/school/onlinetest/db/data/t_topik.csv">
-            <column header="id" type="STRING"/>
-            <column header="kode" type="STRING"/>
-            <column header="nama" type="STRING"/>
-        </loadData>
         <loadData tableName="t_ujian" file="com/artivisi/school/onlinetest/db/data/t_ujian.csv">
             <column header="id" type="STRING"/>
             <column header="isi" type="STRING"/>
-            <column header="waktu_mulai" type="STRING"/>
-            <column header="waktu_selesai" type="NUMERIC"/>
+            <column header="waktu_mulai" type="DATE"/>
+            <column header="waktu_selesai" type="DATE"/>
             <column header="id_pertanyaan" type="STRING"/>
             <column header="id_pilihan" type="STRING"/>
             <column header="id_ujian" type="STRING"/>

@@ -40,7 +40,7 @@ import org.springframework.data.domain.Pageable;
 @Transactional
 public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
-	@Autowired
+    @Autowired
     private ApplicationConfigDao applicationConfigDao;
     @Autowired
     private MenuDao menuDao;

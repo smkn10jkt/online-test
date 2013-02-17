@@ -5,7 +5,6 @@
 package com.artivisi.school.onlinetest.dao;
 
 import com.artivisi.school.onlinetest.domain.Ujian;
-import java.io.Serializable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
