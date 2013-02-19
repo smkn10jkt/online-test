@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -28,67 +29,42 @@ import org.springframework.web.util.UriTemplate;
  */
 @Controller
 public class PertanyaanController {
+   @Autowired private BelajarRestfulService belajarRestfulService;
     
-    @Autowired
-    private BelajarRestfulService belajarRestfulService;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @RequestMapping("/pertanyaan/{id}")
-    @ResponseBody
-    public Pertanyaan findById(@PathVariable String id) {
-        Pertanyaan x = belajarRestfulService.findPertanyaanById(id);
-        if (x == null) {
-            throw new IllegalStateException();
-        }
-        return x;
-    }
     
-    @RequestMapping(value = "/pertanyaan", method = RequestMethod.POST)
+    @RequestMapping(value="/master/pertanyaan", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody @Valid Pertanyaan x, HttpServletRequest request, HttpServletResponse response) {
-        belajarRestfulService.save(x);
-        String requestUrl = request.getRequestURL().toString();
-        URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, x.getId());
+    public void save(@RequestBody @Valid Pertanyaan pertanyaan, HttpServletRequest request, HttpServletResponse response){
+      belajarRestfulService.save(pertanyaan);
+       String requestUrl = request.getRequestURL().toString();
+        URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, pertanyaan.getId());
         response.setHeader("Location", uri.toASCIIString());
     }
-    
-    @RequestMapping(method = RequestMethod.PUT, value = "/pertanyaan/{id}")
+     @RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable String id, @RequestBody @Valid Pertanyaan x) {
-        Pertanyaan a = belajarRestfulService.findPertanyaanById(id);
-        if (a == null) {
-            logger.warn("Pertanyaan dengan id [{}] tidak ditemukan", id);
-            throw new IllegalStateException();
+    public void update(@PathVariable String id, @RequestBody @Valid Pertanyaan pertanyaan){
+        Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);
+        if(pertanyaanDB !=null){
+            belajarRestfulService.save(pertanyaan);
         }
-        x.setId(a.getId());
-        belajarRestfulService.save(x);
-    }
-    
-    @RequestMapping(method = RequestMethod.DELETE, value = "/pertanyaan/{id}")
+        }
+@RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable String id) {
-        Pertanyaan a = belajarRestfulService.findPertanyaanById(id);
-        if (a == null) {
-            logger.warn("Pertanyaan dengan id [{}] tidak ditemukan", id);
-            throw new IllegalStateException();
+    public void delete(@PathVariable String id){
+        Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);
+        if(pertanyaanDB !=null){
+            belajarRestfulService.delete(pertanyaanDB);
         }
-        belajarRestfulService.delete(a);
     }
-    
-    @RequestMapping(value = "/pertanyaan", method = RequestMethod.GET)
+@RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.GET)
     @ResponseBody
-    public List<Pertanyaan> findAllPertanyaans(
-            Pageable pageable,
-            HttpServletResponse response) {
-        List<Pertanyaan> hasil = belajarRestfulService.findAllPertanyaans(pageable).getContent();
-
-        return hasil;
+    public Pertanyaan findPertanyaanById(@PathVariable String id){
+        return belajarRestfulService.findPertanyaanById(id);
+        
     }
-    
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler({IllegalStateException.class})
-    public void handle() {
-        logger.debug("Resource dengan URI tersebut tidak ditemukan");
+@RequestMapping(value="/master/pertanyaant", method= RequestMethod.GET)
+    @ResponseBody
+    public Page<Pertanyaan> findPertanyaans(Pageable pagination){
+        return belajarRestfulService.findAllPertanyaans(pagination);
     }
-
 }
