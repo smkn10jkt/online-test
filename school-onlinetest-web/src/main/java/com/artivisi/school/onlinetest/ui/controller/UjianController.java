@@ -66,7 +66,7 @@ public class UjianController {
     
     @RequestMapping(value="/master/ujian", method= RequestMethod.GET)
     @ResponseBody
-    public Page<Ujian> findUjians(Pageable pagination){
+    public Page<Ujian> findUjian(Pageable pagination){
         return belajarRestfulService.findAllUjians(pagination);
     }
 }

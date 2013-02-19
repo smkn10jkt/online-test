@@ -62,7 +62,7 @@ public class PertanyaanController {
         return belajarRestfulService.findPertanyaanById(id);
         
     }
-@RequestMapping(value="/master/pertanyaant", method= RequestMethod.GET)
+@RequestMapping(value="/master/pertanyaan", method= RequestMethod.GET)
     @ResponseBody
     public Page<Pertanyaan> findPertanyaans(Pageable pagination){
         return belajarRestfulService.findAllPertanyaans(pagination);
