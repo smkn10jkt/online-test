@@ -438,4 +438,38 @@ angular.module('belajar.controller',['belajar.service'])
             return true;
         }
     }])
+
+    .controller('SoalController', ['$scope', 'SoalService', function($scope, SoalService){
+        $scope.soals = SoalService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentSoal = SoalService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentSoal = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            SoalService.save($scope.currentSoal)
+            .success(function(){
+                $scope.soals = SoalService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            SoalService.remove(x).success(function(){
+                $scope.soals = SoalService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentSoal);
+        }
+    }])
 ;

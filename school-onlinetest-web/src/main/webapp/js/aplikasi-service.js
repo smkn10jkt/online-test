@@ -124,4 +124,28 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+
+    .factory('SoalService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            soal: $resource('master/soal/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.soal.get(param, callback) }, 
+            query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/soal', obj);
+                } else {
+                    return $http.put('master/soal/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/soal/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;

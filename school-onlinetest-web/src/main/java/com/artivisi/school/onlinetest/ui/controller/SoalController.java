@@ -43,7 +43,6 @@ public class SoalController {
     @RequestMapping(value="/master/soal{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Soal soal){
-        belajarRestfulService.save(soal);
         Soal soalDb = belajarRestfulService.findSoalById(id);
         if(soalDb !=null){
             belajarRestfulService.save(soal);
@@ -58,6 +57,7 @@ public class SoalController {
             belajarRestfulService.delete(soalDb);
         }
     }
+    
     @RequestMapping(value="/master/soal{id}", method= RequestMethod.GET)
     @ResponseBody
     public Soal findSoalById(@PathVariable String id){
@@ -66,7 +66,8 @@ public class SoalController {
     }
     
     @RequestMapping(value="/master/soal", method= RequestMethod.GET)
+    @ResponseBody
     public Page<Soal> findSoal(Pageable pagination){
-        return null;
+        return belajarRestfulService.findAllSoals(pagination);
     }
 }
