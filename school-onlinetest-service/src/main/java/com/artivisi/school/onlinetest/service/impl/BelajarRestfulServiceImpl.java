@@ -318,7 +318,7 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
-    public Page<Ujian> findAllUjian(Pageable pageable) {
+    public Page<Ujian> findAllUjians(Pageable pageable) {
        return ujianDao.findAll(pageable);
     }
 

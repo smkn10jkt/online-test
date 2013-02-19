@@ -277,7 +277,7 @@
             tableName="t_soal"
         />
         <addForeignKeyConstraint
-            constraintName="fk_soal_role"
+            constraintName="fk_soal_topik"
             baseColumnNames="id_topik"
             baseTableName="t_soal"
             referencedTableName="t_topik"
