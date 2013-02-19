@@ -65,7 +65,7 @@ public interface BelajarRestfulService extends MonitoredService {
     void save (Ujian ujian);
     void delete (Ujian ujian);
     Ujian findByIdUjian (String id);
-    Page<Ujian> findAllUjian (Pageable pageable);
+    Page<Ujian> findAllUjians(Pageable pageable);
     Long countAllUjians();
         
     // peserta

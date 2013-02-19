@@ -6,14 +6,13 @@ package com.artivisi.school.onlinetest.ui.controller;
 
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
-import java.awt.print.Pageable;
 import java.net.URI;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import org.springframework.asm.commons.RemappingMethodAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,7 +65,8 @@ public class UjianController {
     }
     
     @RequestMapping(value="/master/ujian", method= RequestMethod.GET)
-    public Page<Ujian> findUjian(Pageable pagination){
-        return null;
+    @ResponseBody
+    public Page<Ujian> findUjians(Pageable pagination){
+        return belajarRestfulService.findAllUjians(pagination);
     }
 }
