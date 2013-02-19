@@ -1,6 +1,6 @@
 package com.artivisi.school.onlinetest.service;
 
-import java.util.List;
+import java.util.List; 
 
 import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;

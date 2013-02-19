@@ -472,4 +472,40 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentSoal);
         }
     }])
+
+
+
+    .controller('TopikController', ['$scope', 'TopikService', function($scope, TopikService){
+        $scope.topiks = TopikService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentTopik = TopikService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentTopik = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            SoalService.save($scope.currentTopik)
+            .success(function(){
+                $scope.topiks = TopikService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            TopikService.remove(x).success(function(){
+                $scope.topiks = TopikService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentTopik);
+        }
+    }])
 ;

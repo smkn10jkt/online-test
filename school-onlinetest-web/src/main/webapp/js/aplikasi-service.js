@@ -148,4 +148,30 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+
+
+
+    .factory('TopikService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            soal: $resource('master/topik/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.topik.get(param, callback) }, 
+            query: function(p, callback){ return this.topik.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/topik', obj);
+                } else {
+                    return $http.put('master/topik/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/topik/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;
