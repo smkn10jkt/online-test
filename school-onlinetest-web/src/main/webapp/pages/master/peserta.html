@@ -73,11 +73,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in peserta">
+            <tr ng-repeat="x in peserta.content">
                 <td>{{x.id}}</td> 
                 <td>{{x.email}}</td> 
                 <td>{{x.kode}}</td>
                 <td>{{x.nama}}</td>
+                
                 
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
