@@ -1,4 +1,9 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.artivisi.school.onlinetest.ui.controller;
+
 
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
@@ -18,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriTemplate;
-
 
 /**
  *
@@ -64,7 +68,7 @@ public class UjianController {
     
     @RequestMapping(value="/master/ujian", method= RequestMethod.GET)
     @ResponseBody
-    public Page<Ujian> findSoal(Pageable pagination){
+    public Page<Ujian> findUjian(Pageable pagination){
         return belajarRestfulService.findAllUjians(pagination);
     }
 }

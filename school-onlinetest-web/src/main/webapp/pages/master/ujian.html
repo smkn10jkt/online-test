@@ -46,41 +46,41 @@
                    required>
             <span ng-show="formEdit.waktuSelesai.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.peserta.$invalid}">
-            <label class="control-label" for="peserta"> Id Pertanyaan : &nbsp;</label>
-            <input type="text" id="id_pertanyaan" 
-                   name="id_pertanyaan" 
+        <div class="control-group" ng-class="{error: formEdit.pertanyaan.$invalid}">
+            <label class="control-label" for="pertanyaan"> Id Pertanyaan : &nbsp;</label>
+            <input type="text" id="pertanyaan" 
+                   name="pertanyaan" 
                    placeholder="Id Pertanyaan" 
-                   ng-model="currentUjian.id_pertanyaan"
+                   ng-model="currentUjian.pertanyaan"
                    required>
-            <span ng-show="formEdit.id_pertanyaan.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.pertanyaan.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.id_pilihan.$invalid}">
-            <label class="control-label" for="id_pilihan"> Id Pilihan : &nbsp;</label>
-            <input type="text" nama="id_pilihan" 
-                   name="id_pilihan" 
+        <div class="control-group" ng-class="{error: formEdit.pilihan.$invalid}">
+            <label class="control-label" for="pilihan"> Id Pilihan : &nbsp;</label>
+            <input type="text" nama="pilihan" 
+                   name="pilihan" 
                    placeholder="Id Pilihan" 
-                   ng-model="currentUjian.id_pilihan"
+                   ng-model="currentUjian.pilihan"
                    required>
-            <span ng-show="formEdit.id_pilihan.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.pilihan.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.id_ujian.$invalid}">
-            <label class="control-label" for="id_ujian"> Id Ujian : &nbsp;</label>
-            <input type="text" nama="id_ujian" 
-                   name="id_ujian" 
+        <div class="control-group" ng-class="{error: formEdit.ujian.$invalid}">
+            <label class="control-label" for="ujian"> Id Ujian : &nbsp;</label>
+            <input type="text" nama="ujian" 
+                   name="ujian" 
                    placeholder="Id Ujian" 
-                   ng-model="currentUjian.id_ujian"
+                   ng-model="currentUjian.ujian"
                    required>
-            <span ng-show="formEdit.id_ujian.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.ujian.$error.required" class="help-inline">Harus Diisi</span>
         </div>
         <div class="control-group" ng-class="{error: formEdit.peserta.$invalid}">
-            <label class="control-label" for="id_peserta"> Id Ujian : &nbsp;</label>
-            <input type="text" nama="id_peserta" 
-                   name="id_peserta" 
+            <label class="control-label" for="peserta"> Id Peserta : &nbsp;</label>
+            <input type="text" nama="peserta" 
+                   name="peserta" 
                    placeholder="Id Peserta" 
-                   ng-model="currentUjian.id_peserta"
+                   ng-model="currentUjian.peserta"
                    required>
-            <span ng-show="formEdit.id_peserta.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.peserta.$error.required" class="help-inline">Harus Diisi</span>
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
@@ -99,8 +99,11 @@
                 <th>Id</th>
                 <th>Waktu Mulai</th>
                 <th>Waktu Selesai</th>
-                <th>Peserta</th>
-                <th></th>
+                <th>ID Pertanyaan</th>
+                <th>ID Pilihan</th>
+                <th>ID Ujian</th>
+                <th>ID Peserta</th>
+                <th>Pilihan</th>
             </tr>
         </thead>
         <tbody>
@@ -108,6 +111,9 @@
                 <td>{{x.id}}</td> 
                 <td>{{x.waktuMulai}}</td> 
                 <td>{{x.waktuSelesai}}</td>
+                <td>{{x.pertanyaan.}}</td>
+                <td>{{x.pilihan}}</td>
+                <td>{{x.ujian}}</td>
                 <td>{{x.peserta.nama}}</td>
                 
                 <td>

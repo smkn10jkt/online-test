@@ -24,11 +24,13 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath*:com/artivisi/school/onlinetest/**/applicationContext.xml"})
 public class UjianServiceTestIT {
-//    @Autowired private BelajarRestfulService belajarRestfulService;
-//    
-//    @Test
-//    public void testFindAll(){
-//        Page<Ujian>hasil = belajarRestfulService.findAllUjians(new PageRequest(0, 10));
-//        assertEquals(new Integer(1), new Integer(hasil.getNumberOfElements()));
-//    }
+    @Autowired private BelajarRestfulService belajarRestfulService;
+    
+    @Test
+    public void testFindAll(){
+        Page<Ujian>hasil = belajarRestfulService.findAllUjians(new PageRequest(0, 10));
+        assertEquals(new Integer(1), new Integer(hasil.getNumberOfElements()));
+        
+        
+    }
 }
