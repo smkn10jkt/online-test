@@ -153,7 +153,7 @@ angular.module('belajar.service', ['ngResource'])
 
     .factory('TopikService', ['$resource', '$http', function($resource, $http){
         var service = {
-            soal: $resource('master/topik/:id', {}, {
+            topik: $resource('master/topik/:id', {}, {
                 queryPage: {method:'GET', isArray: false}
             }),
             get: function(param, callback){ return this.topik.get(param, callback) }, 
@@ -168,6 +168,54 @@ angular.module('belajar.service', ['ngResource'])
             remove: function(obj){
                 if(obj.id != null){
                     return $http.delete('master/topik/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
+
+ .factory('UjianService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            ujian: $resource('master/ujian/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.ujian.get(param, callback) }, 
+            query: function(p, callback){ return this.ujian.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/ujian', obj);
+                } else {
+                    return $http.put('master/ujian/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/ujian/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
+
+.factory('PesertaService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            peserta: $resource('master/peserta/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.peserta.get(param, callback) }, 
+            query: function(p, callback){ return this.peserta.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/peserta', obj);
+                } else {
+                    return $http.put('master/peserta/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/peserta/'+obj.id);
                 }
             }
         };

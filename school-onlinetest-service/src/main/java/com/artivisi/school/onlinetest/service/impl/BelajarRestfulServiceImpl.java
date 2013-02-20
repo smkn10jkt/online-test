@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
-import com.artivisi.school.onlinetest.dao.UjianDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
 import com.artivisi.school.onlinetest.dao.PertanyaanDao;
@@ -18,6 +17,7 @@ import com.artivisi.school.onlinetest.dao.PilihanDao;
 import com.artivisi.school.onlinetest.dao.RoleDao;
 import com.artivisi.school.onlinetest.dao.SoalDao;
 import com.artivisi.school.onlinetest.dao.TopikDao;
+import com.artivisi.school.onlinetest.dao.UjianDao;
 import com.artivisi.school.onlinetest.dao.UserDao;
 import com.artivisi.school.onlinetest.domain.ApplicationConfig;
 import com.artivisi.school.onlinetest.domain.Menu;
@@ -51,8 +51,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private UjianDao ujianDao;
-    @Autowired
     private SoalDao soalDao;
     @Autowired
     private TopikDao topikDao;
@@ -62,6 +60,9 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private PilihanDao pilihanDao;
     @Autowired
     private PertanyaanDao pertanyaanDao;
+    @Autowired
+    private UjianDao ujianDao;
+    
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -299,33 +300,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         return userDao.count();
     }
 
-    @Override
-    public void save(Ujian ujian) {
-        ujianDao.save(ujian);
-    }
-
-    @Override
-    public void delete(Ujian ujian) {
-       ujianDao.delete(ujian);
-    }
-
-    @Override
-    public Ujian findByIdUjian(String id) {
-         if(!StringUtils.hasText(id)){
-            return null;
-        }
-        return ujianDao.findOne(id);
-    }
-
-    @Override
-    public Page<Ujian> findAllUjians(Pageable pageable) {
-       return ujianDao.findAll(pageable);
-    }
-
-    @Override
-    public Long countAllUjians() {
-         return ujianDao.count();
-    }
 
     @Override
     public void save(Peserta peserta) {
@@ -467,4 +441,33 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         return pilihanDao.count();
     }
 
-}
+//    @Override
+//    public void save(Ujian ujian) {
+//        ujianDao.save(ujian);
+//    }
+//
+//    @Override
+//    public void delete(Ujian ujian) {
+//        ujianDao.delete(ujian);
+//    }
+//
+//
+//    @Override
+//    public Page<Ujian> findAllUjians(Pageable Pageable) {
+//        return ujianDao.findAll(Pageable);
+//    }
+//
+//    @Override
+//    public Long countAllUjians(Ujian ujian) {
+//        return ujianDao.count();
+//    }
+//
+//    @Override
+//    public Ujian findUjianById(String id) {
+//         if(!StringUtils.hasText(id)){
+//            return null;
+//        }
+//        return ujianDao.findOne(id);
+//    }
+    }
+

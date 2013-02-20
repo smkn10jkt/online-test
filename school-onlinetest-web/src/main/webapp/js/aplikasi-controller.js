@@ -490,7 +490,7 @@ angular.module('belajar.controller',['belajar.service'])
             $scope.original = null;
         }
         $scope.simpan = function(){
-            SoalService.save($scope.currentTopik)
+            TopikService.save($scope.currentTopik)
             .success(function(){
                 $scope.topiks = TopikService.query();
                 $scope.baru();
@@ -506,6 +506,40 @@ angular.module('belajar.controller',['belajar.service'])
         }
         $scope.isClean = function(){
             return angular.equals($scope.original, $scope.currentTopik);
+        }
+    }])
+
+ .controller('UjianController', ['$scope', 'UjianService', function($scope, UjianService){
+        $scope.ujians = UjianService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentUjian = UjianService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentUjian = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            UjianService.save($scope.currentUjian)
+            .success(function(){
+                $scope.ujians = UjianService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            UjianService.remove(x).success(function(){
+                $scope.ujians = UjianService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentUjian);
         }
     }])
 ;

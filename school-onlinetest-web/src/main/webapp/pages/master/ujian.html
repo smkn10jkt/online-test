@@ -21,34 +21,34 @@
         </div>
         <div class="control-group" ng-class="{error: formEdit.isi.$invalid}">
             <label class="control-label" for="isi"> Pertanyaan : &nbsp;</label>
-            <input type="text" kode="isi" 
+            <input type="text" id="isi" 
                    name="isi" 
                    placeholder="Isi Pertanyaan" 
                    ng-model="currentUjiann.isi"
                    required>
             <span ng-show="formEdit.isi.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.waktu_mulai.$invalid}">
-            <label class="control-label" for="waktu_mulai"> Waktu Mulai : &nbsp;</label>
-            <input type="text" nama="waktu_mulai" 
-                   name="waktu_mulai" 
+        <div class="control-group" ng-class="{error: formEdit.waktuMulai.$invalid}">
+            <label class="control-label" for="waktuMulai"> Waktu Mulai : &nbsp;</label>
+            <input type="text" id="waktuMulai" 
+                   name="waktuMulai" 
                    placeholder="Waktu Mulai" 
-                   ng-model="currentUjian.waktu_mulai"
+                   ng-model="currentUjian.waktuMulai"
                    required>
-            <span ng-show="formEdit.waktu_mulai.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.waktuMulai.$error.required" class="help-inline">Harus Diisi</span>
         </div> 
-        <div class="control-group" ng-class="{error: formEdit.waktu_selesai.$invalid}">
-            <label class="control-label" for="waktu_selesai"> Waktu Selesai : &nbsp;</label>
-            <input type="text" nama="waktu_selesai" 
-                   name="waktu_selesai" 
+        <div class="control-group" ng-class="{error: formEdit.waktuSelesai.$invalid}">
+            <label class="control-label" for="waktuSelesai"> Waktu Selesai : &nbsp;</label>
+            <input type="text" id="waktuSelesai" 
+                   name="waktuSelesai" 
                    placeholder="Waktu Selesai" 
-                   ng-model="currentUjian.waktu_selesai"
+                   ng-model="currentUjian.waktuSelesai"
                    required>
-            <span ng-show="formEdit.waktu_selesai.$error.required" class="help-inline">Harus Diisi</span>
+            <span ng-show="formEdit.waktuSelesai.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.id_pertanyaan.$invalid}">
-            <label class="control-label" for="id_pertanyaan"> Id Pertanyaan : &nbsp;</label>
-            <input type="text" nama="id_pertanyaan" 
+        <div class="control-group" ng-class="{error: formEdit.peserta.$invalid}">
+            <label class="control-label" for="peserta"> Id Pertanyaan : &nbsp;</label>
+            <input type="text" id="id_pertanyaan" 
                    name="id_pertanyaan" 
                    placeholder="Id Pertanyaan" 
                    ng-model="currentUjian.id_pertanyaan"
@@ -73,7 +73,7 @@
                    required>
             <span ng-show="formEdit.id_ujian.$error.required" class="help-inline">Harus Diisi</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.id_peserta.$invalid}">
+        <div class="control-group" ng-class="{error: formEdit.peserta.$invalid}">
             <label class="control-label" for="id_peserta"> Id Ujian : &nbsp;</label>
             <input type="text" nama="id_peserta" 
                    name="id_peserta" 
