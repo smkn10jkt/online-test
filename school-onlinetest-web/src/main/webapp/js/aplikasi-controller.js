@@ -611,7 +611,7 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('PesertaController', ['$scope', 'PesertaService', function($scope, SoalService){
+    .controller('PesertaController', ['$scope', 'PesertaService', function($scope, PesertaService){
         $scope.pesertas = PesertaService.query();
         $scope.edit = function(x){
             if(x.id == null){
