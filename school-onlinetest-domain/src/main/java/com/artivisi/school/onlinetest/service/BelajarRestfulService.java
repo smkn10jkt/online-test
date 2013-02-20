@@ -97,10 +97,10 @@ public interface BelajarRestfulService extends MonitoredService {
     Long countAllPilihans();
     
 //    //ujian
-//    void save (Ujian ujian);
-//    void delete(Ujian ujian);
-//    Ujian findUjianById(String id);
-//    Page<Ujian> findAllUjians(Pageable pageable);
-//    Long countAllUjians();
+    void save (Ujian ujian);
+    void delete(Ujian ujian);
+    Ujian findUjianById(String id);
+    Page<Ujian> findAllUjians(Pageable pageable);
+    Long countAllUjians();
     
 }

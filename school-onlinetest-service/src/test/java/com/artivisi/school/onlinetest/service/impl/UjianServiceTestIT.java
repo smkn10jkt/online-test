@@ -30,7 +30,5 @@ public class UjianServiceTestIT {
     public void testFindAll(){
         Page<Ujian>hasil = belajarRestfulService.findAllUjians(new PageRequest(0, 10));
         assertEquals(new Integer(1), new Integer(hasil.getNumberOfElements()));
-        
-        
     }
 }

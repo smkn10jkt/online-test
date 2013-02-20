@@ -441,32 +441,32 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         return pilihanDao.count();
     }
 
-//    @Override
-//    public void save(Ujian ujian) {
-//        ujianDao.save(ujian);
-//    }
-//
-//    @Override
-//    public void delete(Ujian ujian) {
-//        ujianDao.delete(ujian);
-//    }
-//
-//    @Override
-//    public Ujian findUjianById(String id) {
-//        if(!StringUtils.hasText(id)){
-//            return null;
-//        }
-//        return ujianDao.findOne(id);
-//    }
-//
-//    @Override
-//    public Page<Ujian> findAllUjians(Pageable pageable) {
-//        return ujianDao.findAll(pageable);
-//    }
-//
-//    @Override
-//    public Long countAllUjians() {
-//        return ujianDao.count();
-//    }
+    @Override
+    public void save(Ujian ujian) {
+        ujianDao.save(ujian);
+    }
+
+    @Override
+    public void delete(Ujian ujian) {
+        ujianDao.delete(ujian);
+    }
+
+    @Override
+    public Ujian findUjianById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return ujianDao.findOne(id);
+    }
+
+    @Override
+    public Page<Ujian> findAllUjians(Pageable pageable) {
+        return ujianDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllUjians() {
+        return ujianDao.count();
+    }
 }
 
