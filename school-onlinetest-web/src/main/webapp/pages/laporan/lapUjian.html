@@ -25,13 +25,9 @@
         <tbody
             <tr ng-repeat="x in soals">
                 <td>{{x.id}}</td>
-                <td>{{x.pertanyaan}}</td>
-                <td>{{x.waktu_mulai}}</td>
-                <td>{{x.waktu_selesai}}</td>
-                <td>{{x.id_pertanyaan}}</td>
-                <td>{{x.id_pilihan}}</td>
-                <td>{{x.id_ujian}}</td>
-                <td>{{x.id_peserta}}</td>
+                <td>{{x.waktuMulai}}</td>
+                <td>{{x.waktuSelesai}}</td>
+                <td>{{x.peserta}}</td>
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>

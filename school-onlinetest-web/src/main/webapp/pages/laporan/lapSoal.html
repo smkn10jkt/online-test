@@ -30,14 +30,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in soals">
+            <tr ng-repeat="x in soals.content">
                 <td>{{x.id}}</td>
-                <td>{{x.jumlah_pertanyaan}}</td>
+                <td>{{x.jumlahPertanyaan}}</td>
                 <td>{{x.kode}}</td>
                 <td>{{x.nama}}</td>
-                <td>{{x.nilai_lulus_minimum}}</td>
-                <td>{{x.tingkat_kesulitan}}</td>
-                <td>{{x.id_topik}}</td> 
+                <td>{{x.nilaiLulusMinimum}}</td>
+                <td>{{x.tingkatKesulitan}}</td>
+                <td>{{x.topik.nama}}</td> 
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
