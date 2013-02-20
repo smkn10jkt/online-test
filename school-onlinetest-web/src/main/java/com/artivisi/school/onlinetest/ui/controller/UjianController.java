@@ -30,6 +30,7 @@ import org.springframework.web.util.UriTemplate;
  */
 @Controller
 public class UjianController {
+<<<<<<< HEAD
     @Autowired private BelajarRestfulService belajarRestfulService;
     
     @RequestMapping(value="/master/ujian", method= RequestMethod.POST)
@@ -71,4 +72,47 @@ public class UjianController {
     public Page<Ujian> findUjian(Pageable pagination){
         return belajarRestfulService.findAllUjians(pagination);
     }
+=======
+//    @Autowired private BelajarRestfulService belajarRestfulService;
+//    
+//    @RequestMapping(value="/master/ujian", method= RequestMethod.POST)
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public void save(@RequestBody @Valid Ujian ujian, HttpServletRequest request, HttpServletResponse response){
+//      belajarRestfulService.save(ujian);
+//       String requestUrl = request.getRequestURL().toString();
+//        URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, ujian.getId());
+//        response.setHeader("Location", uri.toASCIIString());
+//    }
+//    
+//    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.PUT)
+//    @ResponseStatus(HttpStatus.OK)
+//    public void update(@PathVariable String id, @RequestBody @Valid Ujian ujian){
+//        Ujian ujianDb = belajarRestfulService.findUjianById(id);
+//        if(ujianDb !=null){
+//            belajarRestfulService.save(ujian);
+//        }
+//    }
+//    
+//    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.DELETE)
+//    @ResponseStatus(HttpStatus.OK)
+//    public void delete(@PathVariable String id){
+//        Ujian ujianDb = belajarRestfulService.findUjianById(id);
+//        if(ujianDb !=null){
+//            belajarRestfulService.delete(ujianDb);
+//        }
+//    }
+//    
+//    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.GET)
+//    @ResponseBody
+//    public Ujian findUjianById(@PathVariable String id){
+//        return belajarRestfulService.findUjianById(id);
+//        
+//    }
+//    
+//    @RequestMapping(value="/master/ujian", method= RequestMethod.GET)
+//    @ResponseBody
+//    public Page<Ujian> findSoal(Pageable pagination){
+//        return belajarRestfulService.findAllUjians(pagination);
+//    }
+>>>>>>> f6a5ca49e7964654b0a1db16bdcb473bdf8863c1
 }
