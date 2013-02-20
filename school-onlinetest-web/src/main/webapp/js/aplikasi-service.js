@@ -199,23 +199,23 @@ angular.module('belajar.service', ['ngResource'])
         return service;
     }])
 
-.factory('PesertaService', ['$resource', '$http', function($resource, $http){
+.factory('PertanyaanService', ['$resource', '$http', function($resource, $http){
         var service = {
-            peserta: $resource('master/peserta/:id', {}, {
+            soal: $resource('master/pertanyaan/:id', {}, {
                 queryPage: {method:'GET', isArray: false}
             }),
-            get: function(param, callback){ return this.peserta.get(param, callback) }, 
-            query: function(p, callback){ return this.peserta.queryPage({"page.page": p, "page.size": 10}, callback) },
+            get: function(param, callback){ return this.soal.get(param, callback) }, 
+            query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
                 if(obj.id == null){
-                    return $http.post('master/peserta', obj);
+                    return $http.post('master/pertanyaan', obj);
                 } else {
-                    return $http.put('master/peserta/'+obj.id, obj);
+                    return $http.put('master/pertanyaan/'+obj.id, obj);
                 }
             }, 
             remove: function(obj){
                 if(obj.id != null){
-                    return $http.delete('master/peserta/'+obj.id);
+                    return $http.delete('master/pertanyaan/'+obj.id);
                 }
             }
         };
@@ -247,23 +247,23 @@ angular.module('belajar.service', ['ngResource'])
         return service;
     }])
 
-.factory('PertanyaanService', ['$resource', '$http', function($resource, $http){
+.factory('PesertaService', ['$resource', '$http', function($resource, $http){
         var service = {
-            soal: $resource('master/pertanyaan/:id', {}, {
+            peserta: $resource('master/peserta/:id', {}, {
                 queryPage: {method:'GET', isArray: false}
             }),
-            get: function(param, callback){ return this.soal.get(param, callback) }, 
-            query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
+            get: function(param, callback){ return this.peserta.get(param, callback) }, 
+            query: function(p, callback){ return this.peserta.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
                 if(obj.id == null){
-                    return $http.post('master/pertanyaan', obj);
+                    return $http.post('master/peserta', obj);
                 } else {
-                    return $http.put('master/pertanyaan/'+obj.id, obj);
+                    return $http.put('master/peserta/'+obj.id, obj);
                 }
             }, 
             remove: function(obj){
                 if(obj.id != null){
-                    return $http.delete('master/pertanyaan/'+obj.id);
+                    return $http.delete('master/peserta/'+obj.id);
                 }
             }
         };

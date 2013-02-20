@@ -543,24 +543,24 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('PesertaController', ['$scope', 'PesertaService', function($scope, SoalService){
-        $scope.pesertas = PesertaService.query();
+    .controller('PertanyaanController', ['$scope', 'PertanyaanService', function($scope, PertanyaanService){
+        $scope.pertanyaans = PertanyaanService.query();
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
             }
-            $scope.currentPeserta = PesertaService.get({id: x.id}, function(data){
+            $scope.currentPertanyaan = PertanyaanService.get({id: x.id}, function(data){
                 $scope.original = angular.copy(data);
             });
         };
         $scope.baru = function(){
-            $scope.currentPeserta = null;
+            $scope.currentPertanyaan = null;
             $scope.original = null;
         }
         $scope.simpan = function(){
-            PesertaService.save($scope.currentPeserta)
+            PertanyaanService.save($scope.currentPertanyaan)
             .success(function(){
-                $scope.pesertas = PesertaService.query();
+                $scope.pertanyaans = PertanyaanService.query();
                 $scope.baru();
             });
         }
@@ -568,12 +568,12 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
-            PesertaService.remove(x).success(function(){
-                $scope.pesertas = PesertaService.query();
+            PertanyaanService.remove(x).success(function(){
+                $scope.pertanyaans = PertanyaanService.query();
             });
         }
         $scope.isClean = function(){
-            return angular.equals($scope.original, $scope.currentPeserta);
+            return angular.equals($scope.original, $scope.currentPertanyaan);
         }
     }])
 
@@ -611,24 +611,24 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('PertanyaanController', ['$scope', 'PertanyaanService', function($scope, PertanyaanService){
-        $scope.pertanyaans = PertanyaanService.query();
+    .controller('PesertaController', ['$scope', 'PesertaService', function($scope, SoalService){
+        $scope.pesertas = PesertaService.query();
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
             }
-            $scope.currentPertanyaan = PertanyaanService.get({id: x.id}, function(data){
+            $scope.currentPeserta = PesertaService.get({id: x.id}, function(data){
                 $scope.original = angular.copy(data);
             });
         };
         $scope.baru = function(){
-            $scope.currentPertanyaan = null;
+            $scope.currentPeserta = null;
             $scope.original = null;
         }
         $scope.simpan = function(){
-            PertanyaanService.save($scope.currentPertanyaan)
+            PesertaService.save($scope.currentPeserta)
             .success(function(){
-                $scope.pertanyaans = PertanyaanService.query();
+                $scope.pesertas = PesertaService.query();
                 $scope.baru();
             });
         }
@@ -636,12 +636,12 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
-            PertanyaanService.remove(x).success(function(){
-                $scope.pertanyaans = PertanyaanService.query();
+            PesertaService.remove(x).success(function(){
+                $scope.pesertas = PesertaService.query();
             });
         }
         $scope.isClean = function(){
-            return angular.equals($scope.original, $scope.currentPertanyaan);
+            return angular.equals($scope.original, $scope.currentPeserta);
         }
     }])
 ;
