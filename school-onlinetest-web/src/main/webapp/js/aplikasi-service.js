@@ -222,4 +222,52 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+
+ .factory('PilihanService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            soal: $resource('master/pilihan/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.soal.get(param, callback) }, 
+            query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/pilihan', obj);
+                } else {
+                    return $http.put('master/pilihan/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/pilihan/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
+
+.factory('PertanyaanService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            soal: $resource('master/pertanyaan/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.soal.get(param, callback) }, 
+            query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/pertanyaan', obj);
+                } else {
+                    return $http.put('master/pertanyaan/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/pertanyaan/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;

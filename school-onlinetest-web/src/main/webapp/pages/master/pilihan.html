@@ -64,15 +64,18 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Isi</th>
                 <th>Kode</th>
-                <th>Nama</th>
+                <th>Urutan</th>
+                <th>Perintah</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="x in pilihans.content">
                 <td>{{x.id}}</td>
+                <td>{{x.isi}}</td>
                 <td>{{x.kode}}</td>
-                <td>{{x.nama}}</td>
+                <td>{{x.urutan}}</td>
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
