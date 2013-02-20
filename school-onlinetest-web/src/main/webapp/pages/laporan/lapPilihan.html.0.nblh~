@@ -22,9 +22,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in pilihans.content">
-                <td>{{x.id}}</td>
-                <td>{{x.isi}}</td>
+            <tr ng-repeat="x in peserta">
+                <td>{{x.id}}</td> 
+                <td>{{x.isi}}</td> 
                 <td>{{x.kode}}</td>
                 <td>{{x.urutan}}</td>
                 

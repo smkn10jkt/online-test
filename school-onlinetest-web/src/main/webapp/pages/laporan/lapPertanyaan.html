@@ -30,12 +30,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in peserta">
+            <tr ng-repeat="x in pertanyaans.content">
+                <td>{{x.id}}</td> 
                 <td>{{x.bobot}}</td> 
-                <td>{{x.isi}}</td> 
+                <td>{{x.isi}}</td>
                 <td>{{x.jawaban}}</td>
-                
-                
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
