@@ -30,7 +30,6 @@ import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
-import com.artivisi.school.onlinetest.domain.Lesson;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
 import java.util.ArrayList;
 import org.springframework.data.domain.Page;
@@ -440,36 +439,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllPilihans() {
         return pilihanDao.count();
     }
-
-
-//    @Override
-//    public void save(Ujian ujian) {
-//        ujianDao.save(ujian);
-//    }
-//
-//    @Override
-//    public void delete(Ujian ujian) {
-//        ujianDao.delete(ujian);
-//    }
-//
-//
-//    @Override
-//    public Page<Ujian> findAllUjians(Pageable Pageable) {
-//        return ujianDao.findAll(Pageable);
-//    }
-//
-//    @Override
-//    public Long countAllUjians(Ujian ujian) {
-//        return ujianDao.count();
-//    }
-//
-//    @Override
-//    public Ujian findUjianById(String id) {
-//         if(!StringUtils.hasText(id)){
-//            return null;
-//        }
-//        return ujianDao.findOne(id);
-//    }
 
     @Override
     public void save(Ujian ujian) {

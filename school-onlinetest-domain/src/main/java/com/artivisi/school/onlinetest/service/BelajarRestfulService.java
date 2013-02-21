@@ -13,7 +13,6 @@ import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.User;
-import com.artivisi.school.onlinetest.domain.Lesson;
 import java.util.List;
 import org.hibernate.type.descriptor.java.UUIDTypeDescriptor;
 import org.springframework.data.domain.Page;
