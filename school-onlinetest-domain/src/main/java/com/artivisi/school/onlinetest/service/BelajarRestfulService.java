@@ -13,6 +13,7 @@ import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.User;
+import com.artivisi.school.onlinetest.domain.Lesson;
 import java.util.List;
 import org.hibernate.type.descriptor.java.UUIDTypeDescriptor;
 import org.springframework.data.domain.Page;
@@ -60,6 +61,13 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
+    
+    // lesson
+    void save(Lesson lesson);
+    void delete(Lesson lesson);
+    Lesson findLessonById(String id);
+    Page<Lesson> findAllLessons(Pageable pageable);
+    Long countAllLessons();
    
     // ujian
 //    void save(Ujian ujian);

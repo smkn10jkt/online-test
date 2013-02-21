@@ -9,7 +9,7 @@
             </div>
              <div class="control-group" ng-class="{error: formEdit.address.$invalid}">
                 <label class="control-label" for="majors">Majors  : &nbsp;</label>
-                <input type="text" id="majors" name="majors" placeholder="Address" ng-model="currentUser.majors" required ui-validate="{usernameAvailable: isUsernameAvailable}">
+                <input type="text" id="majors" name="majors" placeholder="majors" ng-model="currentUser.majors" required ui-validate="{usernameAvailable: isUsernameAvailable}">
                 <span ng-show="formEdit.majors.$error.required" class="help-inline">Harus diisi</span>
             </div>
             <div class="control-group" ng-class="{error: formEdit.subdistrict.$invalid}">
