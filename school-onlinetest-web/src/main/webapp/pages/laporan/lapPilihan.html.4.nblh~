@@ -1,6 +1,5 @@
 <div class="row-fluid">
    <div class="span12 well-large">
-       <center><img src="../icon/logo.png" width="288" height="114" /></center>
        <center><h1> Laporan Pertanyaan</h1></center>
     <form class="form-horizontal" name="formEdit">
         <label class="control-label" for="cari">Cari : &nbsp;</label>
@@ -23,19 +22,19 @@
     <hr>
         <thead>
             <tr>
-                <th>Bobot</th>
+                <th>Id</th>
                 <th>Isi</th>
-                <th>Jawaban</th>
-                <th>Pilihan</th>
-                <th>Perintah</th>
+                <th>Kode</th>
+                <th>Urutan</th>
+                
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="x in pertanyaans.content">
                 <td>{{x.id}}</td> 
-                <td>{{x.bobot}}</td> 
-                <td>{{x.isi}}</td>
-                <td>{{x.jawaban}}</td>
+                <td>{{x.isi}}</td> 
+                <td>{{x.kode}}</td>
+                <td>{{x.urutan}}</td>
                 <td>
                    
                 </td>

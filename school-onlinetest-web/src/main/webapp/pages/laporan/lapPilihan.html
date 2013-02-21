@@ -1,9 +1,18 @@
 <div class="row-fluid">
    <div class="span12 well-large">
+       <center><img src="../icon/logo.png" width="288" height="114" /></center>
        <center><h1> Laporan Pilihan</h1></center>
     <form class="form-horizontal" name="formEdit">
-    <label class="control-label" for="id">Search : &nbsp;</label>
-    <input type="text" class="search-query"><button type="button" class="btn btn-primary">Search</button>
+    <label class="control-label" for="cari">Cari : &nbsp;</label>
+       <select>
+                <option>Bobot</option>
+                <option>Isi</option>
+                <option>Jawaban</option>
+                <option>Pilihan</option>
+                <option>Perintah</option>
+        </select>
+       <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
+       <buttonclass class="btn btn-warning" data-toggle="modal"><i class="icon-search"></i>&nbsp; Cari Pilihan Baru</button>
     </form>
 </div> 
 </div>
@@ -18,19 +27,17 @@
                 <th>Isi</th>
                 <th>Kode</th>
                 <th>Urutan</th>
-                <th>Perintah</th>
+                
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in pilihans.content">
-                <td>{{x.id}}</td>
-                <td>{{x.isi}}</td>
+            <tr ng-repeat="x in pertanyaans.content">
+                <td>{{x.id}}</td> 
+                <td>{{x.isi}}</td> 
                 <td>{{x.kode}}</td>
                 <td>{{x.urutan}}</td>
-                
                 <td>
-                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
-                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                   
                 </td>
             </tr>
         </tbody>
