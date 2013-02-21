@@ -1,9 +1,20 @@
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="../../icon/OnlineTestKecil.ico" />
+    <title>Master Topik | Test Online</title>
+</head>
 <div class="row-fluid">
-   <div class="span10 well-large">
+   <div class="span12 well-large">
+       <center><img src="../icon/logo.png" width="288" height="114" /></center>
        <center><h1>Laporan Mata Pelajaran</h1></center>
     <form class="form-horizontal navbar-search pull-left" name="formEdit">
-    <label class="control-label" for="id">Search : &nbsp;</label>
-    <input type="text" class="search-query"><button type="button" class="btn btn-primary">Search</button>
+    <label class="control-label" for="cari">Cari : &nbsp;</label>
+       <select>
+                <option>ID</option>
+                <option>Kode</option>
+                <option>Nama</option>
+        </select>
+    <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
+    <buttonclass class="btn btn-warning" data-toggle="modal"><i class="icon-search"></i>Cari</buttonclass>
      </form>
     </div>
     
@@ -26,8 +37,6 @@
                 <td>{{x.kode}}</td>
                 <td>{{x.nama}}</td>
                 <td>
-                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
-                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
                 </td>
             </tr>
         </tbody>
