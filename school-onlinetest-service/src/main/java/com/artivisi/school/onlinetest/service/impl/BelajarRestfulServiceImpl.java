@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
-import com.artivisi.school.onlinetest.dao.LessonDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
 import com.artivisi.school.onlinetest.dao.PertanyaanDao;
@@ -64,9 +63,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private PertanyaanDao pertanyaanDao;
     @Autowired
     private UjianDao ujianDao;
-    @Autowired
-    private LessonDao lessonDao;
-    
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -474,34 +470,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 //        }
 //        return ujianDao.findOne(id);
 //    }
-
-    @Override
-    public void save(Lesson lesson) {
-        lessonDao.save(lesson);
-    }
-
-    @Override
-    public void delete(Lesson lesson) {
-        lessonDao.delete(lesson);
-    }
-
-    @Override
-    public Lesson findLessonById(String id) {
-        if(!StringUtils.hasText(id)){
-            return null;
-        }
-        return lessonDao.findOne(id);
-    }
-
-    @Override
-    public Page<Lesson> findAllLessons(Pageable pageable) {
-        return lessonDao.findAll(pageable);
-    }
-
-    @Override
-    public Long countAllLessons() {
-        return lessonDao.count();
-        }
 
     @Override
     public void save(Ujian ujian) {
