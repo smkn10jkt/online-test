@@ -207,11 +207,9 @@ angular.module('belajar.service', ['ngResource'])
             get: function(param, callback){ return this.soal.get(param, callback) }, 
             query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
-                if(obj.id == null){
+               
                     return $http.post('master/pertanyaan', obj);
-                } else {
-                    return $http.put('master/pertanyaan/'+obj.id, obj);
-                }
+                
             }, 
             remove: function(obj){
                 if(obj.id != null){
