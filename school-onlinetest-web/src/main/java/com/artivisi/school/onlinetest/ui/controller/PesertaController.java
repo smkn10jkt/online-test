@@ -40,7 +40,7 @@ public class PesertaController {
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, peserta.getId());
         response.setHeader("Location", uri.toASCIIString());
 }
-        @RequestMapping(value="/master/peserta{id}", method= RequestMethod.PUT)
+        @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Peserta peserta){
         Peserta pesertaDB = belajarRestfulService.findPesertaById(id);
@@ -48,7 +48,7 @@ public class PesertaController {
             belajarRestfulService.save(peserta);
         }
         }
-    @RequestMapping(value="/master/peserta{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Peserta pesertaDB = belajarRestfulService.findPesertaById(id);
@@ -56,7 +56,7 @@ public class PesertaController {
             belajarRestfulService.delete(pesertaDB);
         }
     }
-    @RequestMapping(value="/master/peserta{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Peserta findPesertaById(@PathVariable String id){
         return belajarRestfulService.findPesertaById(id);

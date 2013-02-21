@@ -40,7 +40,7 @@ public class PertanyaanController {
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, pertanyaan.getId());
         response.setHeader("Location", uri.toASCIIString());
     }
-     @RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.PUT)
+     @RequestMapping(value="/master/pertanyaan/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Pertanyaan pertanyaan){
         Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);
@@ -48,7 +48,7 @@ public class PertanyaanController {
             belajarRestfulService.save(pertanyaan);
         }
         }
-@RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.DELETE)
+@RequestMapping(value="/master/pertanyaan/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);
@@ -56,7 +56,7 @@ public class PertanyaanController {
             belajarRestfulService.delete(pertanyaanDB);
         }
     }
-@RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.GET)
+@RequestMapping(value="/master/pertanyaan/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Pertanyaan findPertanyaanById(@PathVariable String id){
         return belajarRestfulService.findPertanyaanById(id);

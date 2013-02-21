@@ -50,7 +50,7 @@ public class TopikController {
         }
     }
     
-    @RequestMapping(value="/master/topik{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/topik/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Topik topikDb = belajarRestfulService.findTopikById(id);
@@ -59,7 +59,7 @@ public class TopikController {
         }
     }
     
-    @RequestMapping(value="/master/topik{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/master/topik/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Topik findTopikById(@PathVariable String id){
         return belajarRestfulService.findTopikById(id);
