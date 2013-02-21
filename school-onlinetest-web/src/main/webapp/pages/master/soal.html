@@ -84,7 +84,6 @@
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
             <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
     </div>
  
@@ -125,7 +124,6 @@
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
             <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
     </div>
     </form> 
@@ -185,7 +183,7 @@
                 <td>{{x.tingkatKesulitan}}</td>
                 <td>{{x.topik.nama}}</td> 
                 <td>
-                    <a href="#addSoal" ng-click="edit(x)"><i class="icon-edit"></i></a>
+                    <a data-toggle="modal" href="#addSoal" ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
                 </td>
             </tr>
