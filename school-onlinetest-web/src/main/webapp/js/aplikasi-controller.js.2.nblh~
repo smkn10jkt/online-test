@@ -442,7 +442,6 @@ angular.module('belajar.controller',['belajar.service'])
     .controller('SoalController', ['$scope', 'SoalService', 'TopikService', function($scope, SoalService, TopikService){
         $scope.soals = SoalService.query();
         $scope.topiks = TopikService.query();
-        console.log("topiknya --> ",$scope.topiks);
         $scope.edit = function(x){
             if(x.id == null){
                 return; 

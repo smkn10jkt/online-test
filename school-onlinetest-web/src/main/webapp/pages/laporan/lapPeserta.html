@@ -1,5 +1,6 @@
 <div class="row-fluid">
    <div class="span12 well-large">
+       <center><img src="../icon/logo.png" width="288" height="114" /></center>
        <center><h1> Laporan Peserta</h1></center>
     <form class="form-horizontal" name="formEdit">
         <label class="control-label" for="cari">Cari : &nbsp;</label>
@@ -11,7 +12,7 @@
                 <option>Perintah</option>
         </select>
        <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
-       <buttonclass class="btn btn-warning" data-toggle="modal"><i class="icon-search"></i>&nbsp; Data Peserta Baru</button>
+       <buttonclass class="btn btn-warning" data-toggle="modal"><i class="icon-search"></i>&nbsp; Cari Peserta Baru</button>
     </form>
 </div> 
 </div>
@@ -26,7 +27,7 @@
                 <th>Email</th>
                 <th>Kode</th>
                 <th>Nama Peserta</th>
-                <th>Perintah</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -37,8 +38,7 @@
                 <td>{{x.nama}}</td>
                 
                 <td>
-                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
-                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                   
                 </td>
             </tr>
         </tbody>
