@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.onlinetest.dao.ApplicationConfigDao;
+import com.artivisi.school.onlinetest.dao.LessonDao;
 import com.artivisi.school.onlinetest.dao.MenuDao;
 import com.artivisi.school.onlinetest.dao.PermissionDao;
 import com.artivisi.school.onlinetest.dao.PertanyaanDao;
@@ -30,6 +31,7 @@ import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Topik;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.domain.User;
+import com.artivisi.school.onlinetest.domain.Lesson;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
 import java.util.ArrayList;
 import org.springframework.data.domain.Page;
@@ -62,6 +64,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private PertanyaanDao pertanyaanDao;
     @Autowired
     private UjianDao ujianDao;
+    @Autowired
+    private LessonDao lessonDao;
     
 
     @Override
@@ -440,6 +444,64 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllPilihans() {
         return pilihanDao.count();
     }
+
+
+//    @Override
+//    public void save(Ujian ujian) {
+//        ujianDao.save(ujian);
+//    }
+//
+//    @Override
+//    public void delete(Ujian ujian) {
+//        ujianDao.delete(ujian);
+//    }
+//
+//
+//    @Override
+//    public Page<Ujian> findAllUjians(Pageable Pageable) {
+//        return ujianDao.findAll(Pageable);
+//    }
+//
+//    @Override
+//    public Long countAllUjians(Ujian ujian) {
+//        return ujianDao.count();
+//    }
+//
+//    @Override
+//    public Ujian findUjianById(String id) {
+//         if(!StringUtils.hasText(id)){
+//            return null;
+//        }
+//        return ujianDao.findOne(id);
+//    }
+
+    @Override
+    public void save(Lesson lesson) {
+        lessonDao.save(lesson);
+    }
+
+    @Override
+    public void delete(Lesson lesson) {
+        lessonDao.delete(lesson);
+    }
+
+    @Override
+    public Lesson findLessonById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return lessonDao.findOne(id);
+    }
+
+    @Override
+    public Page<Lesson> findAllLessons(Pageable pageable) {
+        return lessonDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllLessons() {
+        return lessonDao.count();
+        }
 
     @Override
     public void save(Ujian ujian) {

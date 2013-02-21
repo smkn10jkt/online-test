@@ -267,6 +267,30 @@ angular.module('belajar.service', ['ngResource'])
                 }
             }
         };
+        
+        return service;
+    }])
+        
+       .factory('LessonService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            lesson: $resource('list/lesson/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.lesson.get(param, callback) }, 
+            query: function(){ return this.lesson.query() },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('list/lesson/', obj);
+                } else {
+                    return $http.put('list/lesson/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('list/lesson/'+obj.id);
+                }
+            }
+        };
             
         return service;
     }])

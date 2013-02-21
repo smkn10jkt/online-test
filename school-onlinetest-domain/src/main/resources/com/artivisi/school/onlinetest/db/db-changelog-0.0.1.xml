@@ -196,6 +196,30 @@
             </column>
         </createTable>
         
+        <createTable tableName="lesson">
+            <column name="lesson_id" type="int(50)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="majors" type="longtext">
+                <constraints nullable="false" />
+            </column>
+            <column name="Semester " type="varchar">
+                <constraints nullable="false" />
+            </column>
+            <column name="Name" type="varchar">
+                <constraints nullable="false" />
+            </column>
+            <column name="KKM" type="int(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="Total_Competency" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="Description " type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
