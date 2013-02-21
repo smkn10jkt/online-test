@@ -13,7 +13,7 @@ public class Ujian {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid2")
     private String id;
-
+    
     @NotNull
     @Column(nullable = false, name = "waktu_mulai")
     @Temporal(TemporalType.TIMESTAMP)
@@ -28,7 +28,47 @@ public class Ujian {
     @ManyToOne
     @JoinColumn(nullable = false, name = "id_peserta")
     private Peserta peserta;
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "id_pertanyaan")
+    private Pertanyaan pertanyaan;
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "id_pilihan")
+    private Pilihan pilihan;
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "id_ujian")
+    private Ujian ujian;
 
+    public Pertanyaan getPertanyaan() {
+        return pertanyaan;
+    }
+
+    public void setPertanyaan(Pertanyaan pertanyaan) {
+        this.pertanyaan = pertanyaan;
+    }
+
+    public Pilihan getPilihan() {
+        return pilihan;
+    }
+
+    public void setPilihan(Pilihan pilihan) {
+        this.pilihan = pilihan;
+    }
+
+    public Ujian getUjian() {
+        return ujian;
+    }
+
+    public void setUjian(Ujian ujian) {
+        this.ujian = ujian;
+    }
+
+    
     public String getId() {
         return id;
     }

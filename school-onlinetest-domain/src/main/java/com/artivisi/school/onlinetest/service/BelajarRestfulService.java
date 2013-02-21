@@ -61,6 +61,7 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
+<<<<<<< HEAD
     
     // lesson
     void save(Lesson lesson);
@@ -75,6 +76,8 @@ public interface BelajarRestfulService extends MonitoredService {
 //    Ujian findUjianById(String id);
 //    Page<Ujian> findAllUjians(Pageable pageable);
 //    Long countAllUjians(Ujian ujian);
+=======
+>>>>>>> 7144ef82c353907b269e208c512eed80d36d2c89
         
     // peserta
     void save(Peserta peserta);
@@ -111,5 +114,11 @@ public interface BelajarRestfulService extends MonitoredService {
     Page<Pilihan> findAllPilihans(Pageable pageable);
     Long countAllPilihans();
     
-
+//    //ujian
+    void save (Ujian ujian);
+    void delete(Ujian ujian);
+    Ujian findUjianById(String id);
+    Page<Ujian> findAllUjians(Pageable pageable);
+    Long countAllUjians();
+    
 }

@@ -13,21 +13,24 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Pertanyaan</th>
                 <th>Waktu Mulai</th>
                 <th>Waktu Selesai</th>
                 <th>Id Pertanyaan</th>
                 <th>Id Pilihan</th>
                 <th>Id Ujian</th>
                 <th>Id Peserta</th>
+                <th>Pilihan</th>
             </tr>
         </thead>
         <tbody
-            <tr ng-repeat="x in soals">
+            <tr ng-repeat="x in ujians.content">
                 <td>{{x.id}}</td>
                 <td>{{x.waktuMulai}}</td>
                 <td>{{x.waktuSelesai}}</td>
-                <td>{{x.peserta}}</td>
+                <td>{{x.pertanyaan.id}}</td>
+                <td>{{x.pilihan.id}}</td>
+                <td>{{x.ujian.id}}</td>
+                <td>{{x.peserta.nama}}</td>
                 <td>
                     <a ng-click="edit(x)"><i class="icon-edit"></i></a>
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
