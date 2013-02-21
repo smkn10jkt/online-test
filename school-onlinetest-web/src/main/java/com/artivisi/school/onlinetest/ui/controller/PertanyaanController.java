@@ -40,7 +40,7 @@ public class PertanyaanController {
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, pertanyaan.getId());
         response.setHeader("Location", uri.toASCIIString());
     }
-     @RequestMapping(value="/master/pertanyaan{id}", method= RequestMethod.PUT)
+     @RequestMapping(value="/master/pertanyaan/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Pertanyaan pertanyaan){
         Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);

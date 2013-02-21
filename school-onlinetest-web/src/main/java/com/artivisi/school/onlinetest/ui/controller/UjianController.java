@@ -41,7 +41,7 @@ public class UjianController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.PUT)
+    @RequestMapping(value="/master/ujian/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Ujian ujian){
         Ujian ujianDb = belajarRestfulService.findUjianById(id);
@@ -50,7 +50,7 @@ public class UjianController {
         }
     }
     
-    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/ujian/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Ujian ujianDb = belajarRestfulService.findUjianById(id);
@@ -59,7 +59,7 @@ public class UjianController {
         }
     }
     
-    @RequestMapping(value="/master/ujian{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/master/ujian/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Ujian findUjianById(@PathVariable String id){
         return belajarRestfulService.findUjianById(id);

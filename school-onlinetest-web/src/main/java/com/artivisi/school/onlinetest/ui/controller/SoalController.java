@@ -36,7 +36,7 @@ public class SoalController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/soal{id}", method= RequestMethod.PUT)
+    @RequestMapping(value="/master/soal/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Soal soal){
         Soal soalDb = belajarRestfulService.findSoalById(id);

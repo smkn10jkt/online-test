@@ -477,8 +477,9 @@ angular.module('belajar.controller',['belajar.service'])
 
 
 
-    .controller('TopikController', ['$scope', 'TopikService', function($scope, TopikService){
+    .controller('TopikController', ['$scope', 'TopikService', 'SoalService', function($scope, TopikService, SoalService){
         $scope.topiks = TopikService.query();
+        $scope.soals = SoalService.query();
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
