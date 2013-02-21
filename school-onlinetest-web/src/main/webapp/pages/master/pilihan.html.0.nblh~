@@ -6,7 +6,7 @@
     <form class="form-horizontal" name="formEdit">
         
     <!-- Button to trigger modal -->
-    <a href="#addTopik" role="button" class="btn btn-warning" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Pilihan Baru</a>
+    <a href="#addTopik" role="button" class="btn btn-primary" data-toggle="modal"><i class="icon-plus-sign"></i>Buat Data Pilihan Baru</a>
      
     <!-- Modal -->
     <div id="addTopik" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
+            <button type="submit" class="btn btn-warning" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
             <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
