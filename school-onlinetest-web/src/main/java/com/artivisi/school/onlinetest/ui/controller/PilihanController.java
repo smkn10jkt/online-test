@@ -40,25 +40,27 @@ public class PilihanController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/pilihan{id}", method= RequestMethod.PUT)
+    @RequestMapping(value="/master/pilihan/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Pilihan pilihan){
         Pilihan pilihanDb = belajarRestfulService.findPilihanById(id);
-        if(pilihanDb !=null){
-            belajarRestfulService.save(pilihan);
+        if(pilihanDb == null){
+            throw  new IllegalStateException();
         }
+        belajarRestfulService.save(pilihan);
     }
     
-    @RequestMapping(value="/master/pilihan{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/pilihan/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Pilihan pilihanDb = belajarRestfulService.findPilihanById(id);
-        if(pilihanDb !=null){
-            belajarRestfulService.delete(pilihanDb);
+        if(pilihanDb == null){
+            throw  new IllegalStateException();
         }
+        belajarRestfulService.delete(pilihanDb);
     }
     
-    @RequestMapping(value="/master/pilihan{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/master/pilihan/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Pilihan findPilihanById(@PathVariable String id){
         return belajarRestfulService.findPilihanById(id);
