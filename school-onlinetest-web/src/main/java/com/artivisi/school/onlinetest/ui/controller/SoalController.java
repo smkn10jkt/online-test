@@ -45,16 +45,17 @@ public class SoalController {
         }
     }
     
-    @RequestMapping(value="/master/soal{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/soal/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Soal soalDb = belajarRestfulService.findSoalById(id);
-        if(soalDb !=null){
-            belajarRestfulService.delete(soalDb);
+        if(soalDb == null){
+            throw new IllegalStateException();
         }
+        belajarRestfulService.delete(soalDb);
     }
     
-    @RequestMapping(value="/master/soal{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/master/soal/{id}", method= RequestMethod.GET)
     @ResponseBody
     public Soal findSoalById(@PathVariable String id){
         return belajarRestfulService.findSoalById(id);
