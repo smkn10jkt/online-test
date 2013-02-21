@@ -4,7 +4,6 @@
  */
 package com.artivisi.school.onlinetest.service.impl;
 
-import com.artivisi.school.onlinetest.domain.Soal;
 import com.artivisi.school.onlinetest.domain.Ujian;
 import com.artivisi.school.onlinetest.service.BelajarRestfulService;
 import org.junit.Test;
