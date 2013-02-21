@@ -225,21 +225,21 @@ angular.module('belajar.service', ['ngResource'])
 
  .factory('PilihanService', ['$resource', '$http', function($resource, $http){
         var service = {
-            soal: $resource('pilihan/:id', {}, {
+            soal: $resource('master/pilihan/:id', {}, {
                 queryPage: {method:'GET', isArray: false}
             }),
             get: function(param, callback){ return this.soal.get(param, callback) }, 
             query: function(p, callback){ return this.soal.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
                 if(obj.id == null){
-                    return $http.post('pilihan', obj);
+                    return $http.post('master/pilihan', obj);
                 } else {
-                    return $http.put('pilihan/'+obj.id, obj);
+                    return $http.put('master/pilihan/'+obj.id, obj);
                 }
             }, 
             remove: function(obj){
                 if(obj.id != null){
-                    return $http.delete('pilihan/'+obj.id);
+                    return $http.delete('master/pilihan/'+obj.id);
                 }
             }
         };
@@ -267,7 +267,8 @@ angular.module('belajar.service', ['ngResource'])
                 }
             }
         };
-            
+        
         return service;
     }])
+       
 ;
