@@ -273,11 +273,11 @@ angular.module('belajar.service', ['ngResource'])
         
        .factory('LessonService', ['$resource', '$http', function($resource, $http){
         var service = {
-            lesson: $resource('notifications/lesson/:id', {}, {
+            lesson: $resource('list/lesson/:id', {}, {
                 queryPage: {method:'GET', isArray: false}
             }),
             get: function(param, callback){ return this.lesson.get(param, callback) }, 
-            query: function(){ return this.sms.query() },
+            query: function(){ return this.lesson.query() },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('list/lesson/', obj);
