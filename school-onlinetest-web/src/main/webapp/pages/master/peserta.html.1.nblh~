@@ -14,12 +14,13 @@
       </div>
       <div class="modal-body">
         <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-            <!-- <label class="control-label" for="id"> ID : &nbsp;</label> -->
-            <input type="hidden" id="id" 
+            <label class="control-label" for="id"> ID : &nbsp;</label>
+            <input type="text" id="id" 
                    name="id" 
                    placeholder="ID Peserta" 
-                   ng-model="currentPeserta.id" />
-            <!--<span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span> -->
+                   ng-model="currentPeserta.id"
+                   required>
+            <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
         </div>
         <div class="control-group" ng-class="{error: formEdit.email.$invalid}">
             <label class="control-label" for="email"> Email : &nbsp;</label>
@@ -51,7 +52,7 @@
       </div>
       <div class="modal-footer">
           <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
-          <button type="reset" class="btn btn-info" ng-click="baru()"> Reset</button>
+          <button type="submit" class="btn btn-info" ng-click="baru()"> Reset</button>
       </div>
     </div>
     </form>
