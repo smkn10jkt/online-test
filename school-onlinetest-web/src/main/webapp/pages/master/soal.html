@@ -20,13 +20,12 @@
         </div>
         <div class="modal-body">
             <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-                <label class="control-label" for="id">ID : &nbsp;</label>
-                <input type="text" id="id" 
+<!--                <label class="control-label" for="id">ID : &nbsp;</label>-->
+                <input type="hidden" id="id" 
                        name="id" 
                        placeholder="ID Soal" 
-                       ng-model="currentSoal.id"
-                       required>
-               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
+                       ng-model="currentSoal.id" />
+<!--               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>-->
             </div>
             <div class="control-group" ng-class="{error: formEdit.jumlahPertanyaan.$invalid}">
                 <label class="control-label" for="jumlahPertanyaan">Jumlah Pertanyaan : &nbsp;</label>

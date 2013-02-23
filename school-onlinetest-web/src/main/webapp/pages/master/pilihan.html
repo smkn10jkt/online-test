@@ -16,13 +16,12 @@
         </div>
         <div class="modal-body">
             <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-                <label class="control-label" for="id">ID : &nbsp;</label>
-                <input type="text" id="id" 
+<!--                <label class="control-label" for="id">ID : &nbsp;</label>-->
+                    <input type="hidden" id="id" 
                        name="id" 
                        placeholder="ID Pilihan" 
-                       ng-model="currentPilihan.id"
-                       required>
-               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
+                       ng-model="currentPilihan.id" />
+<!--               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>-->
             </div>
             <div class="control-group" ng-class="{error: formEdit.isi.$invalid}">
                 <label class="control-label" for="isi">Isi : &nbsp;</label>
@@ -44,7 +43,7 @@
             </div>
             <div class="control-group" ng-class="{error: formEdit.urutan.$invalid}">
                 <label class="control-label" for="urutan">Urutan : &nbsp;</label>
-                <input type="text" id="urutan" 
+                <input type="number" id="urutan" 
                        name="urutan" 
                        placeholder="Urutan Pilihan" 
                        ng-model="currentPilihan.urutan"

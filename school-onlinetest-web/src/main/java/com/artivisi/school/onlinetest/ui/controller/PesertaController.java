@@ -31,7 +31,6 @@ import org.springframework.web.util.UriTemplate;
 public class PesertaController {
     @Autowired private BelajarRestfulService belajarRestfulService;
     
-    
     @RequestMapping(value="/master/peserta", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody @Valid Peserta peserta, HttpServletRequest request, HttpServletResponse response){
@@ -40,7 +39,7 @@ public class PesertaController {
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, peserta.getId());
         response.setHeader("Location", uri.toASCIIString());
 }
-        @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.PUT)
+    @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Peserta peserta){
         Peserta pesertaDB = belajarRestfulService.findPesertaById(id);
@@ -52,9 +51,10 @@ public class PesertaController {
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Peserta pesertaDB = belajarRestfulService.findPesertaById(id);
-        if(pesertaDB !=null){
-            belajarRestfulService.delete(pesertaDB);
+        if(pesertaDB == null){
+            throw new IllegalStateException();
         }
+        belajarRestfulService.delete(pesertaDB);
     }
     @RequestMapping(value="/master/peserta/{id}", method= RequestMethod.GET)
     @ResponseBody

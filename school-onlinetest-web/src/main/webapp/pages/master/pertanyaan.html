@@ -18,17 +18,16 @@
       </div>
       <div class="modal-body">
         <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-            <label class="control-label" for="id"> ID : &nbsp;</label>
-            <input type="text" id="id" 
+<!--            <label class="control-label" for="id"> ID : &nbsp;</label>-->
+                <input type="hidden" id="id" 
                    name="id" 
                    placeholder="ID Pertanyaan" 
-                   ng-model="currentPertanyaan.id"
-                   required>
-            <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
+                   ng-model="currentPertanyaan.id" />
+<!--            <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>-->
         </div>
         <div class="control-group" ng-class="{error: formEdit.bobot.$invalid}">
             <label class="control-label" for="bobot"> Bobot Soal : &nbsp;</label>
-            <input type="text" email="bobot" 
+            <input type="number" email="bobot" 
                    name="bobot" 
                    placeholder="Bobot Soal" 
                    ng-model="currentPertanyaan.bobot"

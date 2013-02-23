@@ -52,9 +52,10 @@ public class PertanyaanController {
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Pertanyaan pertanyaanDB = belajarRestfulService.findPertanyaanById(id);
-        if(pertanyaanDB !=null){
-            belajarRestfulService.delete(pertanyaanDB);
+        if(pertanyaanDB == null){
+            throw new IllegalStateException();
         }
+        belajarRestfulService.delete(pertanyaanDB);
     }
 @RequestMapping(value="/master/pertanyaan/{id}", method= RequestMethod.GET)
     @ResponseBody
