@@ -41,7 +41,7 @@ public class TopikController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/topik{id}", method= RequestMethod.PUT)
+    @RequestMapping(value="/master/topik/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Topik topik){
         Topik topikDb = belajarRestfulService.findTopikById(id);
@@ -54,7 +54,7 @@ public class TopikController {
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Topik topikDb = belajarRestfulService.findTopikById(id);
-        if(topikDb !=null){
+        if(topikDb ==null){
             belajarRestfulService.delete(topikDb);
         }
     }
@@ -68,7 +68,7 @@ public class TopikController {
     
     @RequestMapping(value="/master/topik", method= RequestMethod.GET)
     @ResponseBody
-    public Page<Soal> findTopik(Pageable pagination){
-        return belajarRestfulService.findAllSoals(pagination);
+    public Page<Topik> findTopik(Pageable pagination){
+        return belajarRestfulService.findAllTopiks(pagination);
     }
 }
