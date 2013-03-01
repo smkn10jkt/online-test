@@ -31,14 +31,14 @@ import org.springframework.web.util.UriTemplate;
 public class PilihanController {
     @Autowired private BelajarRestfulService belajarRestfulService;
     
-    @RequestMapping(value="/master/pilihan/{id}", method= RequestMethod.POST)
+    @RequestMapping(value="/master/pilihan", method= RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody @Valid Pilihan pilihan, HttpServletRequest request, HttpServletResponse response){
         belajarRestfulService.save(pilihan);
         String requestUrl = request.getRequestURL().toString();
         URI uri = new UriTemplate("{requestUrl}/{id}").expand(requestUrl, pilihan.getId());
         response.setHeader("Location", uri.toASCIIString());
-    }
+}
     
     @RequestMapping(value="/master/pilihan/{id}", method= RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)

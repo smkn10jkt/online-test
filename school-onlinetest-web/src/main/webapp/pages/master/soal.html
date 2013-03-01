@@ -72,12 +72,12 @@
                        required>
                 <span ng-show="formEdit.tingkatKesulitan.$error.required" class="help-inline">Harus Diisi</span>
             </div>
-            <div class="control-group" ng-class="{error: formEdit.topik.$invalid}">
+            <div class="control-group">
                 <label class="control-label" for="topik">Mata Pelajaran : &nbsp;</label>
-                <select ui-select2 ng-model="currentSoal.topik.id" data-placeholder="-- Pilih Salah Satu --">
+                <select ui-select2 ng-model="currentSoal.topik.id" data-placeholder="-- Pilih Satu --">
                     <option></option>
                     <option ng-repeat="topik in topiks" value="{{topik.id}}">{{topik.nama}}</option>
-              </select>
+                </select>
             </div>
         </div>
         <div class="modal-footer">

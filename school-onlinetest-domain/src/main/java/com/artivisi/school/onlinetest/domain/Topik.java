@@ -20,7 +20,7 @@ public class Topik {
     private String kode;
     @NotNull
     @NotEmpty
-    @Column(nullable = false)
+    @Column(nullable = false, name = "nama")
     private String nama;
 
     public String getId() {
