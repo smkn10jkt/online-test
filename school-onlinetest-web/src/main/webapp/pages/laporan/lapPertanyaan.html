@@ -8,7 +8,6 @@
                 <option>Bobot</option>
                 <option>Isi</option>
                 <option>Jawaban</option>
-                <option>Pilihan</option>
                 <option>Perintah</option>
         </select>
        <input type="text" id="cari" name="cari" placeholder="Kata Kunci" ng-model="currentSoal.cari" required>
@@ -26,19 +25,13 @@
                 <th>Bobot</th>
                 <th>Isi</th>
                 <th>Jawaban</th>
-                <th>Pilihan</th>
-                <th>Perintah</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="x in pertanyaans.content">
-                <td>{{x.id}}</td> 
                 <td>{{x.bobot}}</td> 
                 <td>{{x.isi}}</td>
                 <td>{{x.jawaban}}</td>
-                <td>
-                   
-                </td>
             </tr>
         </tbody>
     </table>

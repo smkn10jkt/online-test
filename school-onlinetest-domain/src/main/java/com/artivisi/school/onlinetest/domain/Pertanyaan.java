@@ -19,7 +19,6 @@ public class Pertanyaan {
     @NotNull
     @NotEmpty
     @Column(nullable = false)
-    @Lob
     private String isi;
 
     @NotNull

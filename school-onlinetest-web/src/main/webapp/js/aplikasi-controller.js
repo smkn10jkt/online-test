@@ -596,7 +596,7 @@ angular.module('belajar.controller',['belajar.service'])
         $scope.simpan = function(){
             PilihanService.save($scope.currentPilihan)
             .success(function(){
-                $scope.soals = PilihanService.query();
+                $scope.pilihans = PilihanService.query();
                 $scope.baru();
             });
         }

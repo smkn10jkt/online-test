@@ -5,7 +5,6 @@
     <form class="form-horizontal" name="formEdit">
         <label class="control-label" for="cari">Cari : &nbsp;</label>
        <select>
-                <option>Id</option>
                 <option>Email</option>
                 <option>Kode</option>
                 <option>Nama Peserta</option>
@@ -23,7 +22,6 @@
     <hr>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Email</th>
                 <th>Kode</th>
                 <th>Nama Peserta</th>
@@ -32,7 +30,6 @@
         </thead>
         <tbody>
             <tr ng-repeat="x in pesertas.content">
-                <td>{{x.id}}</td> 
                 <td>{{x.email}}</td> 
                 <td>{{x.kode}}</td>
                 <td>{{x.nama}}</td>

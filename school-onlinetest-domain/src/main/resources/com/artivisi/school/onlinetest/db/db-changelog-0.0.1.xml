@@ -95,7 +95,7 @@
             <column name="bobot" type="int(11)">
                 <constraints nullable="false" />
             </column>
-            <column name="isi" type="longtext">
+            <column name="isi" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <column name="jawaban" type="varchar(255)">

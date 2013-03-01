@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.artivisi.school.onlinetest.ui.controller;
 
 import com.artivisi.school.onlinetest.domain.Pilihan;
@@ -45,7 +41,7 @@ public class PilihanController {
     public void update(@PathVariable String id, @RequestBody @Valid Pilihan pilihan){
         Pilihan pilihanDb = belajarRestfulService.findPilihanById(id);
         if(pilihanDb == null){
-            throw  new IllegalStateException();
+            throw new IllegalStateException();
         }
         belajarRestfulService.save(pilihan);
     }
