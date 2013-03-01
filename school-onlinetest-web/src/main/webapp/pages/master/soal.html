@@ -20,12 +20,10 @@
         </div>
         <div class="modal-body">
             <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-<!--                <label class="control-label" for="id">ID : &nbsp;</label>-->
                 <input type="hidden" id="id" 
                        name="id" 
                        placeholder="ID Soal" 
                        ng-model="currentSoal.id" />
-<!--               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>-->
             </div>
             <div class="control-group" ng-class="{error: formEdit.jumlahPertanyaan.$invalid}">
                 <label class="control-label" for="jumlahPertanyaan">Jumlah Pertanyaan : &nbsp;</label>
@@ -76,53 +74,13 @@
                 <label class="control-label" for="topik">Mata Pelajaran : &nbsp;</label>
                 <select ui-select2 ng-model="currentSoal.topik.id" data-placeholder="-- Pilih Satu --">
                     <option></option>
-                    <option ng-repeat="topik in topiks" value="{{topik.id}}">{{topik.nama}}</option>
+                    <option ng-repeat="topik in topiks.content" value="{{topik.id}}">{{topik.nama}}</option>
                 </select>
             </div>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
-            <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
-        </div>
-    </div>
- 
-    <div id="addTopik" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-            <h3 id="myModalLabel">Tambah Data Topik</h3>
-        </div>
-        <div class="modal-body">
-            <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-                <label class="control-label" for="id">ID : &nbsp;</label>
-                <input type="text" id="id" 
-                       name="id" 
-                       placeholder="ID Topik" 
-                       ng-model="currentTopik.id"
-                       required>
-               <span ng-show="formEdit.id.$error.required" class="help-inline">Harus Diisi</span>
-            </div>
-            <div class="control-group" ng-class="{error: formEdit.kode.$invalid}">
-                <label class="control-label" for="kode">Kode Mata Pelajaran : &nbsp;</label>
-                <input type="text" id="kode" 
-                       name="kode" 
-                       placeholder="Kode Mata Pelajaran" 
-                       ng-model="currentTopik.kode"
-                       required>
-                <span ng-show="formEdit.kode.$error.required" class="help-inline">Harus Diisi</span>
-            </div>
-            <div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
-                <label class="control-label" for="nama">Nama Mata Pelajaran : &nbsp;</label>
-                <input type="text" id="nama" 
-                       name="nama" 
-                       placeholder="Nama Mata Pelajaran" 
-                       ng-model="currentTopik.nama"
-                       required>
-                <span ng-show="formEdit.nama.$error.required" class="help-inline">Harus Diisi</span>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
-            <button type="button" class="btn btn-info" ng-click="baru()">Reset</button>
+            <button type="reset" class="btn btn-info" ng-click="baru()"> Reset</button>
         </div>
     </div>
     </form> 
@@ -162,7 +120,6 @@
     <table class="table table-striped table-condensed table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Jumlah Pertanyaan</th>
                 <th>Kode Soal</th>
                 <th>Judul Soal</th>
@@ -174,7 +131,6 @@
         </thead>
         <tbody>
             <tr ng-repeat="x in soals.content">
-                <td>{{x.id}}</td>
                 <td>{{x.jumlahPertanyaan}}</td>
                 <td>{{x.kode}}</td>
                 <td>{{x.nama}}</td>
